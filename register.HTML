@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Questify - LoginPage</title>
+  <link rel="stylesheet" href="register.CSS">
+</head>
+<body>
+<header>
+    <div class="tabs">
+      <a href="login.HTML" class="nav-link login">Login</a>
+      <a href="register.HTML" class="nav-link register">Register</a>
+    </div>
+</header>  
+<div class="page-content">
+  <div class="body2">
+    <div class="form">
+      <div class="username">
+      <label for="username">Masukkan Username Baru Mu</label>
+      <input type="text" id="username" placeholder="Masukkan Username Baru Mu">
+      </div>
+      <div class="password">
+      <label for="password">Masukkan Password</label>
+      <input type="password" id="password" placeholder="Masukkan Password Mu">
+      </div>
+
+      <button type="submit" id="registerBtn">Register</button>
+    </div>
+    <div class="imgR">
+      <img src="gambar/register.png" alt="">
+    </div>
+  </div>
+  <div class="back">
+      <a href="BERANDA.HTML"><--Back</a>
+  </div>
+</div>
+</body>
+<script>
+  document.getElementById("registerBtn").addEventListener("click", function(e) {
+      e.preventDefault();
+
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (username === "" || password === "") {
+        alert("Isi username dan password!");
+      } else {
+        alert("Registrasi berhasil! 🎉");
+        window.location.href = "beranda.html";
+      }
+    });
+</script>
+</html>

@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Kdam Thmor Pro', sans-serif;
+  max-width: 100%;
+  font-weight: 300;
+  font-style: normal;
+  background-image: url(gambar/backgroundTetap.png);
+  background-size: cover;
+}
+
+body a {
+  color: white;
+}
+
+.box {
+  width: 450px;
+  background: linear-gradient(to bottom, #0a2b6c, #412a7a);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.body2 {
+  display:flex;
+  flex-direction: row;
+} 
+
+.imgR img{
+  width: 700px;
+  padding: 200px 90px 0 150px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  background: #0b3f91;
+  padding: 15px;
+  border-bottom: 2px solid #fff;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding-bottom: 30px;
+}
+
+.tabs a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 30px;
+
+}
+
+.tabs a.active {
+  border-bottom: 2px solid white;
+}
+
+.border {
+  border: #0a2b6c;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  padding: 50px 0px 20px 150px;
+  width: 40%;
+}
+
+.form .username{
+  padding-bottom: 30px;
+}
+
+.form .password{
+  padding-bottom: 30px;
+}
+
+.form label {
+  display: block;
+  margin: 15px 0 5px;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.form input[type="text"],
+.form input[type="password"] {
+  width: 93%;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #ffffff;
+  background: transparent;
+  color: #fff;
+  outline: none;
+  font-size: 15px;
+}
+
+.form .forgot {
+  color: red;
+  font-size: 12px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.form button {
+  font-family: 'Kdam Thmor Pro', sans-serif;
+  width: 30%;
+  padding: 12px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 10px;
+  background: #ccc;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.form button:hover {
+  background: #aaa;
+}
+
+.back a{
+text-decoration: none;
+color: rgb(255, 255, 255);
+padding-left: 150px;
+}
+
