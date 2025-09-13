@@ -1,137 +1,121 @@
-@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@media (max-width: 1200px) {
+  .body2 {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  .imgR img {
+    width: 350px;
+    padding: 40px 0;
+  }
+  .form {
+    padding: 20px;
+    width: 100%;
+  }
+  .form label {
+    font-size: 20px;
+    text-align: left;
+  }
+  .form button {
+    width: 50%;
+    margin: 20px auto 0 auto;
+  }
 }
 
-body {
-  font-family: 'Kdam Thmor Pro', sans-serif;
-  max-width: 100%;
-  font-weight: 300;
-  font-style: normal;
-  background-image: url(gambar/backgroundTetap.png);
-  background-size: cover;
+@media (max-width: 992px) {
+  .body2 {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  .imgR img {
+    width: 300px;
+    padding: 30px 0;
+  }
+  .form {
+    padding: 20px;
+    width: 100%;
+  }
+  .form label {
+    font-size: 18px;
+  }
+  .form button {
+    width: 60%;
+    margin: 15px auto 0 auto;
+  }
 }
 
-body a {
-  color: white;
+@media (max-width: 768px) {
+  .tabs {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 10px;
+  }
+  .tabs a {
+    font-size: 18px;
+    padding: 6px 12px;
+  }
+  .imgR img {
+    width: 250px;
+    padding: 20px 0;
+  }
+  .form {
+    padding: 15px;
+  }
+  .form label {
+    font-size: 16px;
+  }
+  .form input[type="text"],
+  .form input[type="password"] {
+    font-size: 14px;
+    padding: 8px;
+  }
+  .form button {
+    width: 70%;
+    font-size: 14px;
+    padding: 10px;
+  }
+  .back a {
+    padding-right: 0;
+    justify-content: center;
+    font-size: 14px;
+  }
 }
 
-.box {
-  width: 450px;
-  background: linear-gradient(to bottom, #0a2b6c, #412a7a);
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-}
-
-.body2 {
-  display:flex;
-  flex-direction: row;
-} 
-
-.imgR img{
-  width: 500px;
-  padding: 200px 90px 0 150px;
-}
-
-.tabs {
-  display: flex;
-  justify-content: space-around;
-  background: #0b3f91;
-  padding: 15px;
-  border-bottom: 2px solid #fff;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  padding-bottom: 30px;
-}
-
-.tabs a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 8px 16px;
-  border-radius: 5px;
-  font-size: 30px;
-}
-
-.tabs a.active {
-  border-bottom: 2px solid white;
-}
-
-.border {
-  border: #0a2b6c;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  color: #fff;
-  padding: 50px 10px 50px 260px;
-  width: 50%;
-}
-
-.form .username{
-  padding-bottom: 30px;
-}
-
-.form .password{
-  padding-bottom: 30px;
-}
-
-.form label {
-  display: block;
-  margin: 15px 0 5px;
-  font-weight: bold;
-  font-size: 25px;
-  text-align: right;
-}
-
-.form input[type="text"],
-.form input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-bottom: 2px solid #ffffff;
-  background: transparent;
-  color: #fff;
-  outline: none;
-  font-size: 15px;
-}
-
-.form .forgot {
-  color: red;
-  font-size: 12px;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 5px;
-}
-
-.form button {
-  display: block;
-  width: 30%;
-  padding: 12px;
-  margin-top: 20px;
-  border: none;
-  border-radius: 10px;
-  background: #ccc;
-  font-weight: bold;
-  font-size: 16px;
-  cursor: pointer;
-  margin-right: 0;
-  margin-left: auto;
-}
-
-.form button:hover {
-  background: #aaa;
-}
-
-.back a{
-text-decoration: none;
-color: rgb(255, 255, 255);
-padding-right: 150px;
-display: flex;
-justify-content: flex-end;
+@media (max-width: 576px) {
+  .tabs {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+  }
+  .tabs a {
+    font-size: 16px;
+    padding: 5px 10px;
+  }
+  .imgR img {
+    width: 200px;
+    padding: 15px 0;
+  }
+  .form {
+    padding: 10px;
+  }
+  .form label {
+    font-size: 14px;
+  }
+  .form input[type="text"],
+  .form input[type="password"] {
+    font-size: 12px;
+    padding: 6px;
+  }
+  .form button {
+    width: 90%;
+    font-size: 12px;
+    padding: 8px;
+  }
+  .back a {
+    font-size: 12px;
+    text-align: center;
+  }
 }

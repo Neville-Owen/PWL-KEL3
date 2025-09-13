@@ -1,133 +1,102 @@
-
-@media (max-width: 992px) {
-  header {
+@media (max-width: 1200px) {
+  .navbar {
     padding: 10px 30px;
   }
-
-  nav ul {
-    gap: 10px;
+  .navbar ul {
+    gap: 20px;
   }
-
   .floor1 {
     flex-direction: column;
     text-align: center;
-    padding: 40px 20px;
   }
-
   .floor1 img {
-    width: 250px;
-    height: auto;
-    margin-bottom: 20px;
+    max-width: 80%;
   }
-
-  .floor1 h1 {
-    font-size: 28px;
-  }
-
-  .about img {
-    width: 350px;
-  }
-
-  .pengantar h1 {
-    font-size: 24px;
-  }
-
-  .card {
-    width: 180px;
-  }
-
-  .footer-nav {
-    gap: 60px;
+  .about {
+    padding: 40px 20px;
   }
 }
 
-/* HP */
-@media (max-width: 576px) {
-  header {
-    padding: 10px 15px;
-  }
-
-  header nav {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  nav ul {
+@media (max-width: 992px) {
+  .navbar {
     flex-direction: column;
     align-items: center;
-    gap: 8px;
   }
-
-  nav ul li a {
-    padding: 5px;
-    font-size: 14px;
-  }
-
-  .floor1 {
-    padding: 20px 10px;
-  }
-
-  .floor1 img {
-    width: 200px;
-    height: auto;
-  }
-
-  .floor1 h1 {
-    font-size: 20px;
-    margin: 10px 0;
-  }
-
-  .arrow, .arrow2, .arrow3 {
-    padding: 100px 0;
-  }
-
-  .about img {
-    width: 250px;
-  }
-
-  .about h1 {
-    font-size: 22px;
-  }
-
-  .pengantar h1 {
-    font-size: 20px;
-  }
-
-  .subP {
+  .navbar ul {
     flex-direction: column;
+    gap: 15px;
+    padding: 10px 0;
+  }
+  .floor1 {
+    flex-direction: column;
+    padding: 20px;
+  }
+  .floor1 img {
+    width: 300px;
+  }
+  .about,
+  .pengantar {
+    padding: 30px 15px;
+    text-align: center;
+  }
+  .footer {
+    flex-direction: column;
+    text-align: center;
     gap: 20px;
   }
+}
 
-  .card {
-    width: 100%;
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px;
   }
-
-  .LoginH h1 {
+  .navbar ul {
+    gap: 10px;
+  }
+  .floor1 img {
+    width: 250px;
+  }
+  .about h2,
+  .pengantar h2 {
     font-size: 20px;
   }
-
-  .LoginH a {
-    width: 80%;
-    height: 50px;
-    font-size: 16px;
-  }
-
-  .footer-nav {
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-  }
-
-  .footer-nav h1 {
-    font-size: 18px;
-  }
-
-  .footer-nav li {
+  .about p,
+  .pengantar p {
     font-size: 14px;
   }
+  .footer {
+    padding: 15px;
+  }
+}
 
-  .full p {
-    padding-left: 0;
-    justify-content: center;
+@media (max-width: 576px) {
+  .navbar {
+    flex-direction: column;
+  }
+  .navbar ul {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .navbar a {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+  .floor1 {
+    padding: 15px;
+  }
+  .floor1 img {
+    width: 200px;
+  }
+  .about h2,
+  .pengantar h2 {
+    font-size: 18px;
+  }
+  .about p,
+  .pengantar p {
+    font-size: 12px;
+  }
+  .footer {
+    font-size: 12px;
+    padding: 10px;
   }
 }

@@ -55,7 +55,6 @@ body a {
   padding: 8px 16px;
   border-radius: 5px;
   font-size: 30px;
-
 }
 
 .tabs a.active {
@@ -127,8 +126,78 @@ body a {
 }
 
 .back a{
-text-decoration: none;
-color: rgb(255, 255, 255);
-padding-left: 150px;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  padding-left: 150px;
 }
 
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+  .imgR img {
+    width: 500px;
+    padding: 150px 50px 0 80px;
+  }
+  .form {
+    padding: 40px 20px;
+    width: 50%;
+  }
+}
+
+@media (max-width: 992px) {
+  .body2 {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .imgR img {
+    width: 400px;
+    padding: 50px 0 20px 0;
+  }
+  .form {
+    width: 80%;
+    padding: 20px;
+  }
+  .form label {
+    text-align: left;
+    font-size: 20px;
+  }
+  .form button {
+    width: 50%;
+    margin: 20px auto 0 auto;
+  }
+  .back a {
+    padding-left: 0;
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .tabs a {
+    font-size: 18px;
+    padding: 6px 10px;
+  }
+  .imgR img {
+    width: 250px;
+  }
+  .form {
+    width: 100%;
+    padding: 15px;
+  }
+  .form label {
+    font-size: 16px;
+  }
+  .form input[type="text"],
+  .form input[type="password"] {
+    font-size: 14px;
+  }
+  .form button {
+    width: 70%;
+    font-size: 14px;
+    padding: 10px;
+  }
+  .back a {
+    font-size: 14px;
+  }
+}
