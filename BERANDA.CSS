@@ -1,246 +1,133 @@
-@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@media (max-width: 992px) {
+  header {
+    padding: 10px 30px;
+  }
+
+  nav ul {
+    gap: 10px;
+  }
+
+  .floor1 {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .floor1 img {
+    width: 250px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .floor1 h1 {
+    font-size: 28px;
+  }
+
+  .about img {
+    width: 350px;
+  }
+
+  .pengantar h1 {
+    font-size: 24px;
+  }
+
+  .card {
+    width: 180px;
+  }
+
+  .footer-nav {
+    gap: 60px;
+  }
 }
 
-body {
-  font-family: 'Kdam Thmor Pro', sans-serif;
-  max-width: 100%;
-  font-weight: 300;
-  font-style: normal;
-  background-image: url(gambar/backgroundTetap.png);
-  background-size: cover;
-}
+/* HP */
+@media (max-width: 576px) {
+  header {
+    padding: 10px 15px;
+  }
 
-body h1,p {
-  color: white;
-}
+  header nav {
+    flex-direction: column;
+    gap: 10px;
+  }
 
-header {
-  background: rgba(0,0,0,0.15);
-  padding: 5px 80px 5px 75px;
-  width: 100%;
-  border-bottom: 2px solid #00000029;
-  box-shadow: 0 1px 10px;
-}
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
 
-header nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  
-}
+  nav ul li a {
+    padding: 5px;
+    font-size: 14px;
+  }
 
-nav ul li a{
-  padding-left: 50px;
-}
+  .floor1 {
+    padding: 20px 10px;
+  }
 
-header .logo > img{
-  width: 90px;
-  
-}
+  .floor1 img {
+    width: 200px;
+    height: auto;
+  }
 
-header ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
+  .floor1 h1 {
+    font-size: 20px;
+    margin: 10px 0;
+  }
 
-header ul li a {
-  text-decoration: none;
-  color: #fff;
-  transition: 0.3s;
-}
+  .arrow, .arrow2, .arrow3 {
+    padding: 100px 0;
+  }
 
-header ul li a:hover {
-  color: #ffd700;
-}
+  .about img {
+    width: 250px;
+  }
 
-.btn {
-  background: #ff0077;
-  padding: 8px 16px;
-  border-radius: 8px;
-}
+  .about h1 {
+    font-size: 22px;
+  }
 
-.floor1 {
-  display: flex;
-  justify-content: space-between;
-  text-align: center;
-  align-items: center;
-  padding: 70px 80px 0px 80px;
-}
+  .pengantar h1 {
+    font-size: 20px;
+  }
 
-.floor1 img{
-  width: 350px;
-  height: 350px;
-}
+  .subP {
+    flex-direction: column;
+    gap: 20px;
+  }
 
-.floor1 h1 {
-  font-size:35px;
-  color: white;
-  margin-left: 20px;
-}
+  .card {
+    width: 100%;
+  }
 
-.arrow {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 250px 0 250px 0;
-}
+  .LoginH h1 {
+    font-size: 20px;
+  }
 
-.arrow img {
-  width: 50px;
-}
+  .LoginH a {
+    width: 80%;
+    height: 50px;
+    font-size: 16px;
+  }
 
-.about {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
+  .footer-nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
 
-.about img {
-  width: 500px;
-  padding-bottom: 30px;
-}
+  .footer-nav h1 {
+    font-size: 18px;
+  }
 
-.about h1 {
-  font-size: 33px;
-}
+  .footer-nav li {
+    font-size: 14px;
+  }
 
-.arrow2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 250px 0 250px 0;
-}
-
-.arrow2 img {
-  width: 50px;
-}
-
-.pengantar {
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.pengantar h1 {
-  font-size: 28px;
-  margin-bottom: 40px;
-}
-
-.subP {
-  display: flex;
-  justify-content: center;   
-  gap: 40px;                 
-  flex-wrap: wrap;           
-}
-
-.card {
-  width: 220px;             
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  justify-content: flex-end;
-}
-
-.card > .card1 {
-  padding-top: 10px;
-}
-
-.card img {
-  width: 100px;             
-  height: auto;
-  margin-bottom: 16px;     
-}
-
-.arrow3 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 250px 0 250px 0;
-}
-
-.arrow3 img {
-  width: 50px;
-}
-
-.LoginH {
-  display: flex;
-  padding-bottom: 250px;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  gap: 100px;
-}
-
-.LoginH h1,a{
-  font-size: 28px;
-}
-
-.LoginH a {
-  display: flex;
-  text-decoration: none;
-  border: 2px solid #8E68E1;
-  color: white;
-  background-color: #8E68E1;
-  border-radius: 15px;
-  width: 60%;
-  height: 60px;
-  justify-content: center;
-  align-items: center;
-}
-
-footer {
-  position: relative;
-  text-align: center;
-  padding: 20px;
-  border-top: 4px solid #00000068;
-  margin-top: 40px;
-  background-image: url(gambar/footer.png);
-  background-repeat: repeat-x;
-  background-size: auto; 
-  background-position: bottom; 
-}
-
-.full {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 300px;
-}
-
-.full p {
-  display: flex;
-  padding-left: 120px;
-}
-
-.footer-nav {
-  display: flex;
-  margin-bottom: 30px;
-  text-align: left;
-  flex-direction: row;
-  justify-content: center;
-  gap: 180px;
-}
-
-.Fnav {
-  padding-top: 70px;
-  gap: 50px;
-}
-
-.footer-nav h1 {
-  font-size: 25px;
-  color: #8E68E1;
-  margin-bottom: 10px;
-
-}
-
-.footer-nav li {
-  list-style-type: none;
-  color: white;
+  .full p {
+    padding-left: 0;
+    justify-content: center;
+  }
 }
