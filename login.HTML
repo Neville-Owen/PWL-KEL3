@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Questify - RegisterPage</title>
+  <title>Questify - LoginPage</title>
   <link rel="stylesheet" href="login.CSS">
 </head>
-<body>
+<body class="fade-in">
 <header>
     <div class="tabs">
-      <a href="login.HTML" class="login">Login</a>
-      <a href="register.HTML" class="register">Register</a>
+      <a href="login.HTML" class="nav-link login active">Login</a>
+      <a href="register.HTML" class="nav-link register transition-link">Register</a>
     </div>
 </header>  
+<div class="page-content">
   <div class="body2">
     <div class="imgR">
       <img src="gambar/login.png" alt="">
@@ -20,21 +21,38 @@
     <div class="form">
       <div class="username">
       <label for="username">Masukkan Username Mu</label>
-      <input type="text" id="username" placeholder="Masukkan Username Mu">
+      <input type="text" id="username" placeholder="Neville">
       </div>
       <div class="password">
       <label for="password">Masukkan Password</label>
-      <input type="password" id="password" placeholder="Masukkan Password Mu">
+      <input type="password" id="password" placeholder="•••••">
+      <a href="#" class="forgot">Lupa Password?</a>
       </div>
+
       <button type="submit" id="loginBtn">Login</button>
+      
+      <div class="back">
+        <a href="BERANDA.HTML"><--Back</a>
+      </div>
     </div>
   </div>
-  <div class="back">
-      <a href="BERANDA.HTML"><--Back</a>
-  </div>
+</div>
 </body>
 <script>
-    document.getElementById("loginBtn").addEventListener("click", function(e) {
+  document.querySelectorAll('.transition-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = this.getAttribute('href');
+      
+      document.body.classList.add('fade-out');
+      
+      setTimeout(() => {
+        window.location.href = target;
+      }, 300);
+    });
+  });
+
+  document.getElementById("loginBtn").addEventListener("click", function(e) {
       e.preventDefault();
 
       const username = document.getElementById("username").value.trim();
@@ -43,7 +61,7 @@
       if (username === "" || password === "") {
         alert("Isi username dan password!");
       } else {
-        alert("Registrasi berhasil! 🎉");
+        alert("Login berhasil! 🎉");
         window.location.href = "beranda.html";
       }
     });

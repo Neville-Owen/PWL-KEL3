@@ -13,6 +13,25 @@ body {
   font-style: normal;
   background-image: url(gambar/backgroundTetap.png);
   background-size: cover;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+body.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+body.fade-out {
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 body a {
@@ -58,7 +77,8 @@ body a {
 }
 
 .tabs a.active {
-  border-bottom: 2px solid white;
+  border-bottom: 3px solid white;
+  padding-bottom: 5px;
 }
 
 .border {
@@ -125,13 +145,16 @@ body a {
   background: #aaa;
 }
 
-.back a{
-  text-decoration: none;
-  color: rgb(255, 255, 255);
-  padding-left: 150px;
+.form .back {
+  margin-top: 15px;
 }
 
-/* RESPONSIVE */
+.form .back a{
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+}
+
 @media (max-width: 1200px) {
   .imgR img {
     width: 500px;
@@ -165,11 +188,10 @@ body a {
     width: 50%;
     margin: 20px auto 0 auto;
   }
-  .back a {
-    padding-left: 0;
+  .form .back a {
     display: block;
-    text-align: center;
-    margin-top: 20px;
+    text-align: left;
+    margin-top: 15px;
   }
 }
 
@@ -197,7 +219,7 @@ body a {
     font-size: 14px;
     padding: 10px;
   }
-  .back a {
+  .form .back a {
     font-size: 14px;
   }
 }

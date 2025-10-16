@@ -1,24 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Kdam Thmor Pro', sans-serif;
+  max-width: 100%;
+  font-weight: 300;
+  font-style: normal;
+  background-image: url(gambar/backgroundTetap.png);
+  background-size: cover;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+body.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+body.fade-out {
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+body a {
+  color: white;
+}
+
+.box {
+  width: 450px;
+  background: linear-gradient(to bottom, #0a2b6c, #412a7a);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.body2 {
+  display:flex;
+  flex-direction: row;
+} 
+
+.imgR img{
+  width: 700px;
+  padding: 200px 90px 0 150px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  background: #0b3f91;
+  padding: 15px;
+  border-bottom: 2px solid #fff;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding-bottom: 30px;
+}
+
+.tabs a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 30px;
+}
+
+.tabs a.active {
+  border-bottom: 3px solid white;
+  padding-bottom: 5px;
+}
+
+.border {
+  border: #0a2b6c;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  padding: 50px 0px 20px 150px;
+  width: 40%;
+}
+
+.form .username{
+  padding-bottom: 30px;
+}
+
+.form .password{
+  padding-bottom: 30px;
+}
+
+.form label {
+  display: block;
+  margin: 15px 0 5px;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.form input[type="text"],
+.form input[type="password"] {
+  width: 93%;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #ffffff;
+  background: transparent;
+  color: #fff;
+  outline: none;
+  font-size: 15px;
+}
+
+.form .forgot {
+  color: red;
+  font-size: 12px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.form button {
+  font-family: 'Kdam Thmor Pro', sans-serif;
+  width: 30%;
+  padding: 12px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 10px;
+  background: #ccc;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.form button:hover {
+  background: #aaa;
+}
+
+.form .back {
+  margin-top: 15px;
+}
+
+.form .back a{
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+}
+
 @media (max-width: 1200px) {
   .body2 {
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+    flex-direction: row;
   }
   .imgR img {
-    width: 350px;
-    padding: 40px 0;
+    width: 500px;
+    padding: 150px 50px 0 80px;
   }
   .form {
-    padding: 20px;
-    width: 100%;
-  }
-  .form label {
-    font-size: 20px;
-    text-align: left;
-  }
-  .form button {
+    padding: 40px 20px;
     width: 50%;
-    margin: 20px auto 0 auto;
   }
 }
 
@@ -26,41 +173,67 @@
   .body2 {
     flex-direction: column;
     align-items: center;
+    text-align: center;
+  }
+  .imgR img {
+    width: 400px;
+    padding: 50px 0 20px 0;
+  }
+  .form {
+    width: 80%;
     padding: 20px;
+  }
+  .form label {
+    text-align: left;
+    font-size: 20px;
+  }
+  .form button {
+    width: 50%;
+    margin: 20px auto 0 auto;
+  }
+  .form .back a {
+    display: block;
+    text-align: left;
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tabs a {
+    font-size: 22px;
+    padding: 6px 12px;
   }
   .imgR img {
     width: 300px;
     padding: 30px 0;
   }
   .form {
-    padding: 20px;
-    width: 100%;
+    width: 90%;
+    padding: 15px;
   }
   .form label {
     font-size: 18px;
   }
+  .form input[type="text"],
+  .form input[type="password"] {
+    font-size: 14px;
+  }
   .form button {
     width: 60%;
-    margin: 15px auto 0 auto;
+    font-size: 14px;
   }
 }
 
-@media (max-width: 768px) {
-  .tabs {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 15px 10px;
-  }
+@media (max-width: 576px) {
   .tabs a {
     font-size: 18px;
-    padding: 6px 12px;
+    padding: 6px 10px;
   }
   .imgR img {
     width: 250px;
-    padding: 20px 0;
   }
   .form {
+    width: 100%;
     padding: 15px;
   }
   .form label {
@@ -69,53 +242,13 @@
   .form input[type="text"],
   .form input[type="password"] {
     font-size: 14px;
-    padding: 8px;
   }
   .form button {
     width: 70%;
     font-size: 14px;
     padding: 10px;
   }
-  .back a {
-    padding-right: 0;
-    justify-content: center;
+  .form .back a {
     font-size: 14px;
-  }
-}
-
-@media (max-width: 576px) {
-  .tabs {
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    padding: 10px;
-  }
-  .tabs a {
-    font-size: 16px;
-    padding: 5px 10px;
-  }
-  .imgR img {
-    width: 200px;
-    padding: 15px 0;
-  }
-  .form {
-    padding: 10px;
-  }
-  .form label {
-    font-size: 14px;
-  }
-  .form input[type="text"],
-  .form input[type="password"] {
-    font-size: 12px;
-    padding: 6px;
-  }
-  .form button {
-    width: 90%;
-    font-size: 12px;
-    padding: 8px;
-  }
-  .back a {
-    font-size: 12px;
-    text-align: center;
   }
 }
