@@ -1,5 +1,4 @@
-/* Font pixel retro */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
 
 * {
   margin: 0;
@@ -8,26 +7,40 @@
 }
 
 body {
-  font-family: 'Press Start 2P', cursive;
-  background: linear-gradient(to bottom, #7b2ff7, #1e1e8f);
-  color: #fff;
-  line-height: 1.6;
+  font-family: 'Kdam Thmor Pro', sans-serif;
+  max-width: 100%;
+  font-weight: 300;
+  font-style: normal;
+  background-image: url(gambar/backgroundTetap.png);
+  background-size: cover;
+}
+
+body h1,p {
+  color: white;
 }
 
 header {
-  background: rgba(0,0,0,0.3);
-  padding: 15px 40px;
+  background: rgba(0,0,0,0.15);
+  padding: 5px 80px 5px 75px;
+  width: 100%;
+  border-bottom: 2px solid #00000029;
+  box-shadow: 0 1px 10px;
 }
 
 header nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
 }
 
-header .logo {
-  font-size: 22px;
-  font-weight: bold;
+nav ul li a{
+  padding-left: 50px;
+}
+
+header .logo > img{
+  width: 90px;
+  
 }
 
 header ul {
@@ -52,67 +65,182 @@ header ul li a:hover {
   border-radius: 8px;
 }
 
-.hero {
+.floor1 {
+  display: flex;
+  justify-content: space-between;
   text-align: center;
-  padding: 80px 20px;
+  align-items: center;
+  padding: 70px 80px 0px 80px;
 }
 
-.hero h1 {
-  font-size: 18px;
-  margin-top: 20px;
+.floor1 img{
+  width: 350px;
+  height: 350px;
 }
 
-.hero-icon {
-  width: 100px;
+.floor1 h1 {
+  font-size:35px;
+  color: white;
+  margin-left: 20px;
 }
 
-.about, .missions-preview, .cta {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.mission-cards {
+.arrow {
   display: flex;
   justify-content: center;
-  gap: 30px;
-  margin-top: 30px;
+  align-items: center;
+  padding: 250px 0 250px 0;
+}
+
+.arrow img {
+  width: 50px;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.about img {
+  width: 500px;
+  padding-bottom: 30px;
+}
+
+.about h1 {
+  font-size: 33px;
+}
+
+.arrow2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 250px 0 250px 0;
+}
+
+.arrow2 img {
+  width: 50px;
+}
+
+.pengantar {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.pengantar h1 {
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+
+.subP {
+  display: flex;
+  justify-content: center;   
+  gap: 40px;                 
+  flex-wrap: wrap;           
 }
 
 .card {
-  background: rgba(0,0,0,0.4);
-  padding: 20px;
-  border-radius: 12px;
-  width: 200px;
+  width: 220px;             
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: flex-end;
+}
+
+.card > .card1 {
+  padding-top: 10px;
 }
 
 .card img {
-  width: 60px;
-  margin-bottom: 15px;
+  width: 100px;             
+  height: auto;
+  margin-bottom: 16px;     
 }
 
-.cta-btn {
-  background: #ffd700;
-  color: #000;
-  padding: 12px 20px;
-  border-radius: 12px;
-  display: inline-block;
-  margin-top: 20px;
+.arrow3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 250px 0 250px 0;
+}
+
+.arrow3 img {
+  width: 50px;
+}
+
+.LoginH {
+  display: flex;
+  padding-bottom: 250px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 100px;
+}
+
+.LoginH h1,a{
+  font-size: 28px;
+}
+
+.LoginH a {
+  display: flex;
   text-decoration: none;
+  border: 2px solid #8E68E1;
+  color: white;
+  background-color: #8E68E1;
+  border-radius: 15px;
+  width: 60%;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
 }
 
 footer {
+  position: relative;
   text-align: center;
   padding: 20px;
-  background: rgba(0,0,0,0.5);
+  border-top: 4px solid #00000068;
   margin-top: 40px;
+  background-image: url(gambar/footer.png);
+  background-repeat: repeat-x;
+  background-size: auto; 
+  background-position: bottom; 
 }
 
-.footer-links {
+.full {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 300px;
+}
+
+.full p {
+  display: flex;
+  padding-left: 120px;
+}
+
+.footer-nav {
+  display: flex;
+  margin-bottom: 30px;
+  text-align: left;
+  flex-direction: row;
+  justify-content: center;
+  gap: 180px;
+}
+
+.Fnav {
+  padding-top: 70px;
+  gap: 50px;
+}
+
+.footer-nav h1 {
+  font-size: 25px;
+  color: #8E68E1;
   margin-bottom: 10px;
+
 }
 
-.footer-links a {
-  margin: 0 10px;
-  color: #fff;
-  text-decoration: none;
+.footer-nav li {
+  list-style-type: none;
+  color: white;
 }
