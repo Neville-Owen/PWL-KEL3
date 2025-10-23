@@ -26,8 +26,33 @@
         membantu!
       </h1>
 
-      <div class="support">
-        <input type="support" id="confirmPassword" placeholder="•••••">
+      <div class="container">
+        <input type="text" id="feedback" placeholder="silahkan umpan balik">
+        
+        <button onclick="kirim()">Kirim</button>
       </div>
+
+      <div class="overlay" id="overlay">
+        <div class="overlay-box"><img src="gambar/logo.png"> <br> Terimakasih telah memberi <br>
+        umpan balik kepada kami, kami <br>
+        akan segera menyelesaikannya!</div>
+      </div>
+
+<script>
+function kirim() {
+  const input = document.getElementById('feedback').value.trim();
+  const overlay = document.getElementById('overlay');
+
+  if (input === "") {
+    alert("umpan balik kosong");
+  } else {
+    overlay.style.display = "flex";
+    setTimeout(() => {
+      overlay.style.display = "none";
+      document.getElementById('feedback').value = "";
+    }, 2000);
+  }
+}
+</script>
 </body>
 </html>
