@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-image: url('gambar/backgroundTetap.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+body {
+  font-family: 'Kdam Thmor Pro', sans-serif;
+  background: linear-gradient(180deg, #2d1b69 0%, #1a0f3d 50%, #0d0520 100%);
+  color: white;
+  min-height: 100vh;
+}
+
+header {
+  background: rgba(75, 38, 148, 0.8);
+  padding: 15px 50px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 70px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+nav ul li a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+h1{
+    font-size: 50px;
+    text-align: center;
+    padding-top: 150px;
+}
+
+.search-button {
+            width: 70%;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-button:hover {
+            background: rgba(255, 255, 255, 0.35);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .search-button:active {
+            transform: translateY(0);
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .search-text {
+            color: white;
+            font-size: 18px;
+            font-weight: 500;
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        
