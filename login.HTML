@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Questify - LoginPage</title>
   <link rel="stylesheet" href="login.CSS">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body class="fade-in">
 <header>
@@ -20,16 +21,34 @@
     </div>
     <div class="form">
       <div class="username">
-      <label for="username">Masukkan Username Mu</label>
-      <input type="text" id="username" placeholder="Neville">
+        <label for="username">Username atau Email</label>
+        <input type="text" id="username" placeholder="Neville atau email@example.com">
       </div>
       <div class="password">
-      <label for="password">Masukkan Password</label>
-      <input type="password" id="password" placeholder="•••••">
-      <a href="#" class="forgot">Lupa Password?</a>
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="•••••">
+        <a href="#" class="forgot">Lupa Password?</a>
       </div>
 
       <button type="submit" id="loginBtn">Login</button>
+      
+      <div style="text-align: center; margin: 20px 0; color: #fff;">
+        <span>atau</span>
+      </div>
+      
+      <div id="g_id_onload"
+           data-client_id="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com"
+           data-callback="handleCredentialResponse">
+      </div>
+      <div class="g_id_signin" 
+           data-type="standard"
+           data-size="large"
+           data-theme="filled_blue"
+           data-text="signin_with"
+           data-shape="rectangular"
+           data-logo_alignment="left"
+           style="width: 93%; margin-top: 10px;">
+      </div>
       
       <div class="back">
         <a href="BERANDA.HTML"><--Back</a>
@@ -37,33 +56,6 @@
     </div>
   </div>
 </div>
+<script src="login.js"></script>
 </body>
-<script>
-  document.querySelectorAll('.transition-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = this.getAttribute('href');
-      
-      document.body.classList.add('fade-out');
-      
-      setTimeout(() => {
-        window.location.href = target;
-      }, 300);
-    });
-  });
-
-  document.getElementById("loginBtn").addEventListener("click", function(e) {
-      e.preventDefault();
-
-      const username = document.getElementById("username").value.trim();
-      const password = document.getElementById("password").value.trim();
-
-      if (username === "" || password === "") {
-        alert("Isi username dan password!");
-      } else {
-        alert("Login berhasil! 🎉");
-        window.location.href = "beranda.html";
-      }
-    });
-</script>
 </html>

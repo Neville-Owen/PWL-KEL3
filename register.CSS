@@ -53,7 +53,7 @@ body a {
 
 .imgR img{
   width: 700px;
-  padding: 200px 90px 0 150px;
+  padding: 100px 90px 0 150px;
 }
 
 .tabs {
@@ -94,18 +94,18 @@ body a {
 }
 
 .form .username{
-  padding-bottom: 30px;
+  padding-bottom: 20px;
 }
 
 .form .password{
-  padding-bottom: 30px;
+  padding-bottom: 20px;
 }
 
 .form label {
   display: block;
-  margin: 15px 0 5px;
+  margin: 10px 0 5px;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .form input[type="text"],
@@ -118,6 +118,11 @@ body a {
   color: #fff;
   outline: none;
   font-size: 15px;
+}
+
+.form input[type="text"]::placeholder,
+.form input[type="password"]::placeholder {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .form .forgot {
@@ -158,7 +163,7 @@ body a {
 @media (max-width: 1200px) {
   .imgR img {
     width: 500px;
-    padding: 150px 50px 0 80px;
+    padding: 100px 50px 0 80px;
   }
   .form {
     padding: 40px 20px;
@@ -182,7 +187,7 @@ body a {
   }
   .form label {
     text-align: left;
-    font-size: 20px;
+    font-size: 18px;
   }
   .form button {
     width: 50%;
