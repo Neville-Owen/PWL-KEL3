@@ -10,8 +10,8 @@
 <body class="fade-in">
 <header>
     <div class="tabs">
-      <a href="login.HTML" class="nav-link login active">Login</a>
-      <a href="register.HTML" class="nav-link register transition-link">Register</a>
+      <a href="login.php" class="nav-link login active">Login</a>
+      <a href="register.php" class="nav-link register transition-link">Register</a>
     </div>
 </header>  
 <div class="page-content">
@@ -51,7 +51,7 @@
       </div>
       
       <div class="back">
-        <a href="BERANDA.HTML"><--Back</a>
+        <a href="BERANDA.php"><--Back</a>
       </div>
     </div>
   </div>
