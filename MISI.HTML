@@ -3,49 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Misi - Questify</title>
+  <title>Questify</title>
   <link rel="stylesheet" href="MISI.CSS">
+  <script defer src="MISI.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
+    <div class="logo">
+      <img src="gambar/logo.png" alt="Logo" class="logo-img">
+     
+    </div>
     <nav>
-      <div class="logo">Questify</div>
-      <ul>
-        <li><a href="BERANDA.HTML">Home</a></li>
-        <li><a href="misi.html" class="active">Misi</a></li>
-        <li><a href="PROGGRES.HTML">Progress</a></li>
-        <li><a href="support.html">Bantuan</a></li>
-        <li><a href="login.html" class="btn">Login</a></li>
-      </ul>
+      <a href="#">Beranda</a>
+      <a href="#">Misi</a>
+      <a href="#">Progress</a>
+      <a href="#">Bantuan</a>
+      <a href="#">Masuk</a>
     </nav>
   </header>
-
-  <section class="page-title">
-    <h1>Misi Harianmu</h1>
-    <p>Status: <span class="badge novice">NOVICE</span></p>
-  </section>
-
-  <section class="missions-list">
-    <h2>Umum</h2>
-    <ul>
-      <li>
-        <span>Bangun pagi</span>
-        <button class="complete-btn">Selesai</button>
-      </li>
-      <li>
-        <span>Olahraga 15 menit</span>
-        <button class="complete-btn">Selesai</button>
-      </li>
-    </ul>
-
-    <h2>Kategori</h2>
-    <div class="categories">
-      <button>Harian</button>
-      <button>Belajar</button>
-      <button>Olahraga</button>
-      <button>Kebersihan</button>
-      <button>Produktivitas</button>
+ 
+  <main>
+    <section class="profile-card">
+      <div class="profile-info">
+        <div class="avatar">
+          <img src="gambar/Profile-removebg-preview (1).png" alt="User Avatar">
+        </div>
+        <div class="details">
+          <p><strong>Nama:</strong> User</p>
+          <p><strong>Rank:</strong> Novice</p>
+          <p><strong>Exp:</strong> 0/100 Exp</p>
+          <p><strong>Point:</strong> 0 point</p>
+        </div>
+        <div class="rank-icon">
+          <img src="gambar/novice.png" alt="Novice">
+         
+        </div>
+      </div>
+    </section>
+ 
+    <!-- Bagian Umum -->
+    <section class="missions">
+      <h2>Umum</h2>
+      <div class="mission"><p>menulis ringkasan tentang materi yang disampaikan di kelas</p><span class="reward">+100 exp & 150 p</span><button class="btn">selesai</button></div>
+      <div class="mission"><p>menonton 3 video edukasi </p><span class="reward">+50 exp & 200 p</span><button class="btn">selesai</button></div>
+      <div class="mission"><p>Membaca buku 3 halaman</p><span class="reward">+50 exp & 100 p</span><button class="btn">selesai</button></div>
+      <div class="character"><img src="gambar/Ksatria Hitam.png" alt="Karakter Ksatria"></div>
+    </section>
+ 
+    <!-- Bagian Kategori -->
+    <section class="kategori">
+      <h2>Kategori</h2>
+      <div class="category-buttons">
+        <button>IPS</button>
+        <button>Bahasa Inggris</button>
+        <button>MTK</button>
+        <button>IPA</button>
+        <button>PPKN</button>
+        <button>Bahasa Indonesia</button>
+      </div>
+ 
+      <h3>Mudah</h3>
+      <div class="mission"><p>menghafal 5 flora dan 5 fauna yang terancam punah</p><span class="reward">+25 exp & 50 p</span><button class="btn">selesai</button></div>
+      <div class="mission"><p>mengetahui apa saja iklim yang ada di dunia</p><span class="reward">+25 exp & 70 p</span><button class="btn">selesai</button></div>
+      <div class="mission"><p>menghafal 5 sila Pancasila</p><span class="reward">+50 exp & 100 p</span><button class="btn">selesai</button></div>
+ 
+      <h3>Sedang</h3>
+      <div class="mission"><p>mengetahui semua bentuk kerja sama ekonomi antar negara</p><span class="reward">+75 exp & 100 p</span><button class="btn">selesai</button></div>
+      <div class="mission"><p>mengetahui 5 letak astronomis berbagai negara di dunia</p><span class="reward">+100 exp & 200 p</span><button class="btn">selesai</button></div>
+      <div class="mission"><p>melihat 3 video tentang materi astronomis dan geografis</p><span class="reward">+120 exp & 200 p</span><button class="btn">selesai</button></div>
+      <div class="character"><img src="gambar/wizard.png" alt="Karakter Penyihir"></div>
+    </section>
+  </main>
+ 
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div>
+        <h4>Kelompok</h4>
+        <p>Nama anggota<br>Nama anggota<br>Nama anggota</p>
+      </div>
+      <div>
+        <h4>Bantuan</h4>
+        <p>FAQ<br>Kontak<br>Dukungan</p>
+      </div>
+      <div>
+        <h4>Komunitas</h4>
+        <p>Forum<br>Discord<br>Events</p>
+      </div>
+      <div>
+        <h4>Navigasi</h4>
+        <p>Beranda<br>Progress<br>Masuk</p>
+      </div>
     </div>
-
-    <h2>Mudah</h2>
-    <ul>
+    <p class="copyright">Copyright © 2025 QUESTIFY</p>
+  </footer>
+</body>
+</html>
