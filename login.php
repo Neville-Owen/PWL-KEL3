@@ -1,8 +1,17 @@
 <?php
 require_once 'config.php';
 
+if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+    header('Location: BERANDA.php');
+    exit;
+}
+
 $error = '';
 $success = '';
+
+if (isset($_GET['timeout'])) {
+    $error = 'Sesi Anda telah berakhir. Silakan login kembali.';
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username'] ?? '');
@@ -67,6 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $_SESSION['fullname'] = $user['fullname'];
                     $_SESSION['email'] = $user['email'];
                     $_SESSION['logged_in'] = true;
+                    $_SESSION['last_activity'] = time();
                     
                     $session_token = bin2hex(random_bytes(32));
                     $expires_at = date('Y-m-d H:i:s', time() + SESSION_LIFETIME);
@@ -143,7 +153,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </form>
       
       <div class="back">
-        <a href="BERANDA.php"><--Back</a>
+        <a href="index.php"><--Back</a>
       </div>
     </div>
   </div>

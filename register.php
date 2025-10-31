@@ -1,6 +1,11 @@
 <?php
 require_once 'config.php';
 
+if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+    header('Location: BERANDA.php');
+    exit;
+}
+
 $error = '';
 $success = '';
 
@@ -72,6 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $_SESSION['fullname'] = $fullname;
                         $_SESSION['email'] = $email;
                         $_SESSION['logged_in'] = true;
+                        $_SESSION['last_activity'] = time();
                         
                         header('Location: BERANDA.php');
                         exit;
@@ -148,7 +154,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </form>
       
       <div class="back">
-        <a href="BERANDA.php"><--Back</a>
+        <a href="index.php"><--Back</a>
       </div>
     </div>
     <div class="imgR">

@@ -6,19 +6,15 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     exit;
 }
 
-try {
-    $pdo = getDBConnection();
-    $stmt = $pdo->prepare("SELECT is_active FROM users WHERE id = ?");
-    $stmt->execute([$_SESSION['user_id']]);
-    $user = $stmt->fetch();
-    
-    if (!$user || $user['is_active'] != 1) {
+if (isset($_SESSION['last_activity'])) {
+    $inactive = time() - $_SESSION['last_activity'];
+    if ($inactive > SESSION_LIFETIME) {
         session_unset();
         session_destroy();
-        header('Location: login.php');
+        header('Location: login.php?timeout=1');
         exit;
     }
-} catch (PDOException $e) {
-    error_log("Auth Check Error: " . $e->getMessage());
 }
+
+$_SESSION['last_activity'] = time();
 ?>
