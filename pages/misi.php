@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -15,11 +22,11 @@
      
     </div>
     <nav>
-      <a href="#">Beranda</a>
-      <a href="#">Misi</a>
-      <a href="#">Progress</a>
-      <a href="#">Bantuan</a>
-      <a href="#">Masuk</a>
+                <li><a href="beranda.php">Beranda</a></li>
+                <li><a href="misi.php">Misi</a></li>
+                <li><a href="progress.php">Progress</a></li>
+                <li><a href="support.php">Bantuan</a></li>
+                <li><a href="../be/logout.php">Logout</a></li>
     </nav>
   </header>
  

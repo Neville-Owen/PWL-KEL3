@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Kdam Thmor Pro', sans-serif;
+  max-width: 100%;
+  font-weight: 300;
+  font-style: normal;
+  background: linear-gradient(to bottom, #0a1929, #1a237e);
+  background-attachment: fixed;
+  background-position: center;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+body.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+body.fade-out {
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+body a {
+  color: white;
+}
+
+/* Register Container */
+.register-container {
+  width: 100%;
+  max-width: 520px;
+  background: linear-gradient(to bottom, #1565c0, #4a148c);
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  border: 2px solid rgba(100, 181, 246, 0.6);
+}
+
+/* Title */
+.register-container h1 {
+  display: none;
+}
+
+/* Tabs Section */
+.tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  background: linear-gradient(to bottom, rgba(25, 118, 210, 0.5), rgba(74, 20, 140, 0.3));
+  padding: 30px 20px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 30px 30px 0 0;
+}
+
+.tabs a {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 32px;
+  transition: all 0.3s;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.tabs a.active {
+  color: white;
+  border-bottom: 4px solid white;
+}
+
+.tabs a:hover {
+  color: white;
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  padding: 35px 60px 35px;
+  width: 100%;
+}
+
+form label {
+  display: block;
+  margin: 0 0 8px 0;
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+  width: 100%;
+  padding: 10px 8px;
+  margin-bottom: 20px;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+  background: transparent;
+  color: #fff;
+  outline: none;
+  font-size: 14px;
+  font-family: 'Kdam Thmor Pro', sans-serif;
+  transition: border-color 0.3s;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus {
+  border-bottom-color: #fff;
+}
+
+form input[type="text"]::placeholder,
+form input[type="email"]::placeholder,
+form input[type="password"]::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 13px;
+}
+
+/* Submit Button */
+form button {
+  font-family: 'Kdam Thmor Pro', sans-serif;
+  width: 55%;
+  padding: 13px;
+  margin: 15px auto 0;
+  border: none;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #e8e8e8, #c0c0c0);
+  color: #333;
+  font-weight: bold;
+  font-size: 19px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  display: block;
+}
+
+form button:hover {
+  background: linear-gradient(135deg, #f5f5f5, #d5d5d5);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+form button:active {
+  transform: translateY(0);
+}
+
+/* Login Link */
+.register-container p {
+  text-align: center;
+  margin-top: 15px;
+  padding-bottom: 10px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 15px;
+}
+
+.register-container p a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.register-container p a:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .register-container {
+    max-width: 450px;
+  }
+  
+  .tabs {
+    gap: 70px;
+    padding: 25px 15px;
+  }
+  
+  .tabs a {
+    font-size: 28px;
+  }
+  
+  form {
+    padding: 30px 45px;
+  }
+  
+  form label {
+    font-size: 18px;
+  }
+  
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="password"] {
+    font-size: 13px;
+    margin-bottom: 18px;
+  }
+  
+  form button {
+    width: 65%;
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    padding: 15px;
+  }
+  
+  .register-container {
+    max-width: 100%;
+  }
+  
+  .tabs {
+    gap: 50px;
+    padding: 22px 10px;
+  }
+  
+  .tabs a {
+    font-size: 24px;
+  }
+  
+  form {
+    padding: 25px 30px;
+  }
+  
+  form label {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+  
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="password"] {
+    font-size: 12px;
+    padding: 9px 6px;
+    margin-bottom: 15px;
+  }
+  
+  form button {
+    width: 75%;
+    font-size: 16px;
+    padding: 11px;
+  }
+  
+  .register-container p {
+    font-size: 14px;
+  }
+}

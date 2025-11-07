@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,11 +20,11 @@
           <div class="logo"><img src="gambar/logo.png" alt="Logo Questify"></div>
           <div class="navHeader"></div>
           <ul>
-            <li><a href="BERANDA.html">Beranda</a></li>
-            <li><a href="misi.html">Misi</a></li>
-            <li><a href="PROGGRES.html">Progress</a></li>
-            <li><a href="support.html">Bantuan</a></li>
-            <li><a href="login.html">Masuk</a></li>
+                <li><a href="beranda.php">Beranda</a></li>
+                <li><a href="misi.php">Misi</a></li>
+                <li><a href="progress.php">Progress</a></li>
+                <li><a href="support.php">Bantuan</a></li>
+                <li><a href="../be/logout.php">Logout</a></li>
           </ul>
         </nav>
       </header>
