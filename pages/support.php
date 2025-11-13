@@ -4,64 +4,64 @@ if (!isset($_SESSION['user'])) {
     header('Location: login.php');
     exit;
 }
+$user = $_SESSION['user'];
+$userName = htmlspecialchars($user['name'] ?? 'User');
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="support.css">
+    <title>Questify - Bantuan</title>
+    <link rel="stylesheet" href="../styles/support.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-          <div class="logo"><img src="gambar/logo.png" alt="Logo Questify"></div>
-          <div class="navHeader"></div>
-          <ul>
+    <div class="container-wrapper">
+        <!-- Navbar -->
+        <div class="navbar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="../gambar/logo.png" alt="Questify Logo">
+                </div>
+                <span class="logo-text">QUESTIFY</span>
+            </div>
+            <ul class="nav-links">
                 <li><a href="beranda.php">Beranda</a></li>
                 <li><a href="misi.php">Misi</a></li>
-                <li><a href="progress.php">Progress</a></li>
-                <li><a href="support.php">Bantuan</a></li>
-                <li><a href="../be/logout.php">Logout</a></li>
-          </ul>
-        </nav>
-      </header>
+                <li><a href="proggres.php">Progress</a></li>
+                <li><a href="bantuan.php">Bantuan</a></li>
+            </ul>
+            <!-- User Info dengan Logout Button -->
+            <div class="user-info">
+                <span class="username-display">Halo, <span id="user-name"><?= $userName ?></span>!</span>
+                <a href="../be/be-logout.php" class="logout-btn">Logout</a>
+            </div>
+        </div>
 
-      <h1>
-        Support Quest - Kami siap <br>
-        membantu!
-      </h1>
+        <h1>
+            Support Quest - Kami siap <br>
+            membantu!
+        </h1>
 
-      <div class="container">
-        <input type="text" id="feedback" placeholder="silahkan umpan balik">
-        
-        <button onclick="kirim()">Kirim</button>
-      </div>
+        <div class="container">
+            <input type="text" id="feedback" placeholder="Silahkan umpan balik">
+            
+            <button id="kirim-btn">Kirim</button>
+        </div>
 
-      <div class="overlay" id="overlay">
-        <div class="overlay-box"><img src="gambar/logo.png"> <br> Terimakasih telah memberi <br>
-        umpan balik kepada kami, kami <br>
-        akan segera menyelesaikannya!</div>
-      </div>
+        <div class="overlay" id="overlay">
+            <div class="overlay-box">
+                <img src="../gambar/logo.png" alt="Questify Logo"> 
+                <br> 
+                Terimakasih telah memberi <br>
+                umpan balik kepada kami, kami <br>
+                akan segera menyelesaikannya!
+            </div>
+        </div>
+    </div>
 
-<script>
-function kirim() {
-  const input = document.getElementById('feedback').value.trim();
-  const overlay = document.getElementById('overlay');
-
-  if (input === "") {
-    alert("umpan balik kosong");
-  } else {
-    overlay.style.display = "flex";
-    setTimeout(() => {
-      overlay.style.display = "none";
-      document.getElementById('feedback').value = "";
-    }, 2000);
-  }
-}
-</script>
+    <script src="../script/support.js"></script>
 </body>
 </html>
-

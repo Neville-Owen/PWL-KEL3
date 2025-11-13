@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -6,8 +8,6 @@
 
 body {
   font-family: 'Kdam Thmor Pro', sans-serif;
-  margin: 0;
-  padding: 0;
   background: linear-gradient(180deg, #2d1b69 0%, #1a237e 50%, #0d1b4d 100%);
   background-attachment: fixed;
   color: white;
@@ -21,17 +21,7 @@ body {
   position: relative;
 }
 
-/* Header Styles */
-header {
-    background: rgba(74, 20, 140, 0.5);
-    padding: 15px 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
-}
-
+/* Navbar - SAMA DENGAN BERANDA */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -51,8 +41,6 @@ header {
 .logo-icon {
   width: 60px;
   height: 60px;
-  background: transparent;
-  border-radius: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -127,182 +115,222 @@ header {
 
 /* Main Content */
 main {
-    max-width: 800px;
-    margin: 100px auto 50px;
-    padding: 0 30px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 30px 100px;
 }
 
 h1 {
-    text-align: center;
-    font-size: 32px;
-    margin-bottom: 40px;
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: white;
+  font-weight: bold;
 }
 
-/* Progress Bars */
+/* Progress Bars Section */
 .progress-section {
-    margin-bottom: 60px;
+  margin-bottom: 60px;
 }
 
 .progress-item {
-    margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .progress-bar-container {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 25px;
-    height: 40px;
-    position: relative;
-    overflow: hidden;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(13, 27, 77, 0.6);
+  border-radius: 30px;
+  height: 45px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .progress-bar {
-    background: linear-gradient(90deg, #4fc3f7 0%, #29b6f6 100%);
-    height: 100%;
-    border-radius: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-right: 15px;
-    font-size: 14px;
-    font-weight: bold;
-    transition: width 0.5s ease;
+  background: linear-gradient(90deg, #7b2cbf 0%, #5a189a 100%);
+  height: 100%;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  transition: width 0.8s ease;
+  min-width: 0;
+}
+
+.progress-bar[style*="width: 0"] {
+  justify-content: flex-start;
+  padding-left: 20px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* Task Sections */
 .task-section {
-    margin-bottom: 50px;
+  margin-bottom: 50px;
 }
 
 .task-section h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: white;
+  font-size: 24px;
+  margin-bottom: 25px;
+  color: white;
+  font-weight: bold;
 }
 
 .task-card {
-    background: rgba(26, 35, 126, 0.4);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  background: rgba(13, 27, 77, 0.7);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  padding: 20px 25px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.task-card:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateX(5px);
+}
+
+.task-info {
+  flex: 1;
 }
 
 .task-info h3 {
-    font-size: 16px;
-    margin-bottom: 5px;
-    color: white;
+  font-size: 15px;
+  margin-bottom: 8px;
+  color: white;
+  font-weight: bold;
 }
 
 .task-info p {
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.4;
+  margin: 0;
 }
 
 .task-actions {
-    display: flex;
-    gap: 10px;
-    align-items: center;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 .btn-select {
-    background: white;
-    color: #4a148c;
-    border: none;
-    padding: 8px 20px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.2s;
+  background: white;
+  color: #4a148c;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Kdam Thmor Pro', sans-serif;
 }
 
 .btn-select:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
 }
 
 .btn-delete {
-    background: #ff1744;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 13px;
-    cursor: pointer;
-    transition: background 0.3s;
+  background: transparent;
+  color: #ff4757;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Kdam Thmor Pro', sans-serif;
 }
 
 .btn-delete:hover {
-    background: #d50000;
+  background: rgba(255, 71, 87, 0.2);
 }
 
 .btn-edit {
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s;
+  background: transparent;
+  color: #ffd700;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-edit:hover {
-    background: white;
-    color: #4a148c;
+  transform: scale(1.2);
 }
 
 .menu-dots {
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    transition: all 0.3s;
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
 }
 
 .menu-dots:hover {
-    background: white;
-    color: #4a148c;
+  transform: scale(1.2);
 }
 
-/* Responsive */
+/* Responsive Design */
 @media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        gap: 20px;
-    }
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 30px;
+  }
 
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
 
-    main {
-        margin-top: 150px;
-    }
+  .user-info {
+    flex-direction: column;
+    gap: 10px;
+  }
 
-    .task-card {
-        flex-direction: column;
-        gap: 15px;
-        align-items: flex-start;
-    }
+  main {
+    padding: 30px 20px 80px;
+  }
 
-    .task-actions {
-        width: 100%;
-        justify-content: flex-end;
-    }
+  h1 {
+    font-size: 26px;
+  }
+
+  .task-card {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .task-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .progress-bar {
+    font-size: 12px;
+  }
 }
