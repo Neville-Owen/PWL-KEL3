@@ -28,7 +28,7 @@ $user = $_SESSION['user'];
                 <li><a href="beranda.php">Beranda</a></li>
                 <li><a href="misi.php">Misi</a></li>
                 <li><a href="proggres.php">Progress</a></li>
-                <li><a href="bantuan.php">Bantuan</a></li>
+                <li><a href="support.php">Bantuan</a></li>
             </ul>
             <!-- User Info dengan Logout Button -->
             <div class="user-info">

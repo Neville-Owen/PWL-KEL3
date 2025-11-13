@@ -5,12 +5,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
-  background-image: url('gambar/backgroundTetap.png');
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-}
 
 body {
   font-family: 'Kdam Thmor Pro', sans-serif;
@@ -19,118 +13,210 @@ body {
   min-height: 100vh;
 }
 
-header {
-  background: rgba(75, 38, 148, 0.8);
-  padding: 15px 50px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  backdrop-filter: blur(10px);
+.container-wrapper {
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
 }
 
-nav {
+/* ===== Navbar ===== */
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px 60px;
+  background: rgba(75, 0, 130, 0.6);
+  backdrop-filter: blur(10px);
+  border-bottom: 3px solid rgba(100, 181, 246, 0.6);
 }
 
-.logo img {
-  height: 70px;
-}
-
-nav ul {
+.logo {
   display: flex;
-  list-style: none;
-  gap: 30px;
+  align-items: center;
+  gap: 12px;
 }
 
-nav ul li a {
+.logo-icon {
+  width: 60px;
+  height: 60px;
+  background: transparent;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #FFD700;
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 35px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
   color: white;
   text-decoration: none;
+  font-size: 17px;
+  font-weight: 500;
+  transition: all 0.3s;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+.nav-links a:hover {
+  background: rgba(192, 107, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.username-display {
+  color: white;
   font-size: 16px;
-  padding: 8px 16px;
-  border-radius: 5px;
-  transition: background 0.3s;
+  font-weight: 500;
 }
 
-nav ul li a:hover {
-  background: rgba(255, 255, 255, 0.1);
+.logout-btn {
+  padding: 10px 25px;
+  background: linear-gradient(135deg, #ff6b9d, #c06bff);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(192, 107, 255, 0.4);
 }
 
-h1{
-    font-size: 30px;
-    text-align: center;
-    padding-top: 100px;
-    padding-bottom: 0px;
+.logout-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(192, 107, 255, 0.6);
+}
+
+/* ===== Main Content ===== */
+h1 {
+  font-size: 30px;
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 40px;
+}
+
+.container {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
 }
 
 input[type="text"] {
-    width: 700px;
-    height: 50px;
-    padding: 12px 18px;
-    border: none;
-    border-radius: 15px;
-    font-size: 14px;
-    outline: none;
-    color: white;
-    background-color: rgba(255,255,255,0.2);
-    backdrop-filter: blur(4px);
+  width: 700px;
+  max-width: 90%;
+  height: 50px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 15px;
+  font-size: 14px;
+  outline: none;
+  color: white;
+  background-color: rgba(255,255,255,0.2);
+  backdrop-filter: blur(4px);
+}
+
+input::placeholder {
+  color: #ddd;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 6px;
+  background: white;
+  color: #5a00ff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+  font-family: 'Kdam Thmor Pro', sans-serif;
+}
+
+button:hover {
+  background: #f0f0f0;
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 9999;
+}
+
+.overlay-box {
+  background: linear-gradient(180deg, #2d1b69 0%, #1a0f3d 50%, #0d0520 100%);
+  color: #ffffff;
+  padding: 50px 120px;
+  border-radius: 12px;
+  font-size: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.overlay-box img {
+  width: 50px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 30px;
   }
 
-  input::placeholder {
-    color: #ddd;
-  }
-
-  button {
-    margin-top: 20px;
-    padding: 10px 25px;
-    border: none;
-    border-radius: 6px;
-    background: white;
-    color: #5a00ff;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s;
-  }
-
-  button:hover {
-    background: #f0f0f0;
-  }
-
-
-  .overlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.6);
-    display: none;
+  .nav-links {
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    text-align: center;
+    gap: 15px;
+  }
 
+  h1 {
+    font-size: 24px;
+    padding-top: 50px;
+  }
+
+  input[type="text"] {
+    width: 90%;
   }
 
   .overlay-box {
-    background: linear-gradient(180deg, #2d1b69 0%, #1a0f3d 50%, #0d0520 100%);
-    color: #ffffff;
-    padding: 50px 120px;
-    border-radius: 12px;
-    font-size: 20px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    padding: 30px 50px;
+    font-size: 16px;
   }
-
-  .overlay-box img{
-    width: 50px;
-  }
-
-  .container {
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-  }
-
-        
-
-        
+}
