@@ -24,11 +24,11 @@
                 
             </div>
             <ul>
-                <li><a href="beranda.html">Beranda</a></li>
-                <li><a href="misi.html">Misi</a></li>
-                <li><a href="progress.html">Progress</a></li>
-                <li><a href="bantuan.html">Bantuan</a></li>
-                <li><a href="masuk.html">Masuk</a></li>
+                <li><a href="beranda.php">Beranda</a></li>
+                <li><a href="MISI.php">Misi</a></li>
+                <li><a href="proggres.php">Progress</a></li>
+                <li><a href="support.php">Bantuan</a></li>
+                <li><a href="login.php">Masuk</a></li>
             </ul>
         </nav>
     </header>

@@ -257,3 +257,7 @@ body a {
     font-size: 14px;
   }
 }
+
+.back a:hover {
+  cursor: pointer;
+}

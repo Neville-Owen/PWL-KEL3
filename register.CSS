@@ -53,7 +53,7 @@ body a {
 
 .imgR img{
   width: 700px;
-  padding: 100px 90px 0 150px;
+  padding: 200px 90px 0 150px;
 }
 
 .tabs {
@@ -91,6 +91,10 @@ body a {
   color: #fff;
   padding: 50px 0px 20px 150px;
   width: 40%;
+  max-height: 70vh;
+  overflow-y: auto; 
+  scrollbar-width: none;
+  scrollbar-color: rgba(255,255,255,0.5) transparent;
 }
 
 .form .username{
@@ -109,6 +113,7 @@ body a {
 }
 
 .form input[type="text"],
+.form input[type="email"],
 .form input[type="password"] {
   width: 93%;
   padding: 10px;
@@ -121,6 +126,7 @@ body a {
 }
 
 .form input[type="text"]::placeholder,
+.form input[type="email"]::placeholder,
 .form input[type="password"]::placeholder {
   color: rgba(255, 255, 255, 0.6);
 }

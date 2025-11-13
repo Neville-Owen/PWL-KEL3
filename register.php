@@ -126,7 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         <div class="username">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="example@email.com" value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>" required>
+          <input type="email" id="email" name="email" placeholder="email@gmail.com" value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>" required>
         </div>
         
         <div class="username">
@@ -148,7 +148,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </form>
       
       <div class="back">
-        <a href="BERANDA.php"><--Back</a>
+        <a onclick="history.back()"><-- Back</a>
       </div>
     </div>
     <div class="imgR">

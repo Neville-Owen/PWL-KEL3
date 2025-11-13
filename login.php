@@ -143,8 +143,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </form>
       
       <div class="back">
-        <a href="BERANDA.php"><--Back</a>
-      </div>
+        <a onclick="history.back()"><-- Back</a>
+      <div>
     </div>
   </div>
 </div>
