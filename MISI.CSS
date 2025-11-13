@@ -1,121 +1,266 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
+/* ===== Global ===== */
 body {
-  font-family: 'Press Start 2P', cursive;
-  background: linear-gradient(to bottom, #7b2ff7, #1e1e8f);
-  color: #fff;
   margin: 0;
-  padding: 0;
+  font-family: "Kdam Thmor Pro", cursive;
+  background: linear-gradient(180deg, #3f0071, #6a0dad, #7b1fa2);
+  color: white;
 }
 
 header {
-  background: rgba(0,0,0,0.3);
-  padding: 15px 40px;
-}
-
-header nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: rgba(40, 0, 80, 0.6);
+  padding: 15px 50px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
-header .logo {
-  font-size: 22px;
-  font-weight: bold;
-}
-
-header ul {
-  list-style: none;
+.logo {
   display: flex;
-  gap: 20px;
+  align-items: center;
+  gap: 10px;
 }
 
-header ul li a {
+.logo-img {
+  width: 70px;
+  height: 70px;
+}
+
+header h1 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+nav a {
+  color: white;
   text-decoration: none;
-  color: #fff;
+  margin-left: 25px;
+  font-weight: 500;
   transition: 0.3s;
 }
 
-header ul li a:hover,
-header ul li a.active {
-  color: #ffd700;
+nav a:hover {
+  color: #ffd54f;
+}
+
+main {
+  padding: 30px 60px;
+}
+
+/* ===== Profile Card ===== */
+.profile-card {
+  background-color: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 50px;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.avatar img {
+  width: 150px;
+  height: 140px;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.details {
+  flex: 1;
+  margin-left: 30px;
+  font-size: 16px;
+}
+
+.rank-icon {
+  text-align: center;
+}
+
+.rank-icon img {
+  width: 120px;
+}
+
+.rank-icon p {
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+/* ===== Missions ===== */
+.missions h2,
+.kategori h2 {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.mission {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255,255,255,0.08);
+  padding: 15px 20px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.mission p {
+  flex: 1;
+  font-size: 15px;
+}
+
+.reward {
+  color: #ffd54f;
+  font-weight: 600;
+  margin-right: 20px;
 }
 
 .btn {
-  background: #ff0077;
-  padding: 8px 16px;
-  border-radius: 8px;
-}
-
-.page-title {
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.badge {
-  padding: 4px 10px;
-  border-radius: 6px;
-  font-size: 10px;
-}
-
-.badge.novice {
-  background: #4CAF50;
-  color: #fff;
-}
-
-.missions-list {
-  padding: 30px;
-  max-width: 600px;
-  margin: auto;
-}
-
-.missions-list ul {
-  list-style: none;
-  margin: 15px 0;
-  padding: 0;
-}
-
-.missions-list li {
-  background: rgba(0,0,0,0.4);
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 8px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.complete-btn {
-  background: #ffd700;
+  background: white;
+  color: #4a148c;
   border: none;
-  padding: 6px 12px;
-  border-radius: 6px;
+  padding: 7px 18px;
+  border-radius: 20px;
   cursor: pointer;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 10px;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
-.categories {
+.btn:hover {
+  background: #ba68c8;
+  color: white;
+}
+
+.btn:disabled {
+  background: #8e24aa;
+  color: white;
+  cursor: not-allowed;
+}
+
+.character {
+  text-align: right;
+  margin-top: 30px;
+}
+
+.character img {
+  width: 120px;
+  image-rendering: pixelated;
+}
+
+/* ===== Category Section ===== */
+.kategori {
+  margin-top: 60px;
+}
+
+.category-buttons {
   display: flex;
-  gap: 10px;
   flex-wrap: wrap;
-  margin: 15px 0;
+  gap: 10px;
+  margin-bottom: 25px;
 }
 
-.categories button {
-  background: #ff0077;
-  color: #fff;
+.category-buttons button {
+  background: rgba(255,255,255,0.1);
   border: none;
-  padding: 8px 12px;
-  border-radius: 8px;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-weight: 500;
   cursor: pointer;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 10px;
+  transition: 0.3s;
 }
 
+.category-buttons button:hover {
+  background: #5e35b1;
+}
+
+.kategori h3 {
+  margin-top: 25px;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+/* ===== Footer ===== */
 footer {
+  background: #2e004f;
+  margin-top: 60px;
+  padding: 40px 60px;
+  border-top: 2px solid rgba(255,255,255,0.1);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.footer-content h4 {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.footer-content p {
+  color: #ddd;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+footer .copyright {
   text-align: center;
-  padding: 20px;
-  background: rgba(0,0,0,0.5);
-  margin-top: 40px;
+  font-size: 13px;
+  color: #ccc;
+  margin-top: 20px;
+}
+
+/* ===== Notification Animations ===== */
+@keyframes slideIn {
+  from { 
+    transform: translateX(400px); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+}
+
+@keyframes slideOut {
+  from { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+  to { 
+    transform: translateX(400px); 
+    opacity: 0; 
+  }
+}
+
+@keyframes levelUp {
+  0%, 100% { 
+    transform: scale(1); 
+  }
+  50% { 
+    transform: scale(1.05); 
+  }
+}
+
+.level-up-animation {
+  animation: levelUp 0.5s ease-in-out;
+}
+
+@keyframes slideInMission {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.mission.new-mission {
+  animation: slideInMission 0.5s ease-out;
 }
