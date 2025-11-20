@@ -46,10 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $new_progress = $current + $weight;
             
             // Cek apakah sudah 100%
-            $rank_up = false;
             if ($new_progress >= 100) {
                 $new_progress = 0;
-                $rank_up = true;
             }
             
             $stmt4 = $connection->prepare("UPDATE subject_progress SET current_progress = ?, total_completed = total_completed + 1 WHERE user_id = ? AND subject = ?");
@@ -60,7 +58,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $new_progress = $weight;
             if ($new_progress >= 100) {
                 $new_progress = 0;
-                $rank_up = true;
             }
             
             $stmt4 = $connection->prepare("INSERT INTO subject_progress (user_id, subject, current_progress, total_completed) VALUES (?, ?, ?, 1)");
@@ -107,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['success_message'] = "Tugas selesai! +" . $exp_reward . " EXP, +" . $points_reward . " Points";
     }
     
-    header('Location: ../pages/proggres.php');
+    header('Location: ../pages/misi.php');
     exit;
 }
 ?>

@@ -11,31 +11,6 @@ $user = $_SESSION['user'];
 $user_id = $user['id'];
 $userName = htmlspecialchars($user['name'] ?? 'User');
 
-// Ambil stats user
-$stmt_stats = $connection->prepare("SELECT rank_name, exp, points FROM user_stats WHERE user_id = ?");
-$stmt_stats->bind_param("i", $user_id);
-$stmt_stats->execute();
-$stats_result = $stmt_stats->get_result();
-
-if ($stats_result->num_rows > 0) {
-    $stats = $stats_result->fetch_assoc();
-    $rank = $stats['rank_name'];
-    $exp = $stats['exp'];
-    $points = $stats['points'];
-} else {
-    $rank = 'Novice';
-    $exp = 0;
-    $points = 0;
-}
-
-// Hitung exp untuk next rank
-$exp_needed = 500;
-if ($exp >= 10000) $exp_needed = 15000;
-elseif ($exp >= 5000) $exp_needed = 10000;
-elseif ($exp >= 3000) $exp_needed = 5000;
-elseif ($exp >= 1500) $exp_needed = 3000;
-elseif ($exp >= 500) $exp_needed = 1500;
-
 // Ambil progress per subject
 $subjects = array('bahasa_inggris', 'bahasa_indonesia', 'ipas', 'matematika', 'pendidikan_agama', 'pjok', 'seni_budaya', 'pkn');
 $progress_data = array();
@@ -76,7 +51,6 @@ $completed_result = $stmt_completed->get_result();
 </head>
 <body>
   <div class="container">
-    <!-- Navbar -->
     <div class="navbar">
       <div class="logo">
         <div class="logo-icon">
@@ -97,39 +71,16 @@ $completed_result = $stmt_completed->get_result();
     </div>
  
     <main>
-      <?php if (isset($_SESSIuccesON['ss_message'])): ?>
+      <?php if (isset($_SESSION['success_message'])): ?>
         <div class="alert-success"><?= $_SESSION['success_message'] ?></div>
         <?php unset($_SESSION['success_message']); ?>
-      <?php endif; ?>
-      
-      <?php if (isset($_SESSION['rank_up_message'])): ?>
-        <div class="alert-rankup"><?= $_SESSION['rank_up_message'] ?></div>
-        <?php unset($_SESSION['rank_up_message']); ?>
       <?php endif; ?>
       
       <?php if (isset($_SESSION['error_message'])): ?>
         <div class="alert-error"><?= $_SESSION['error_message'] ?></div>
         <?php unset($_SESSION['error_message']); ?>
       <?php endif; ?>
-      
-      <section class="profile-card">
-        <div class="profile-info">
-          <div class="avatar">
-            <img src="../gambar/Profile-removebg-preview (1).png" alt="User Avatar">
-          </div>
-          <div class="details">
-            <p><strong>Nama:</strong> <span id="profile-name"><?= $userName ?></span></p>
-            <p><strong>Rank:</strong> <?= $rank ?></p>
-            <p><strong>Exp:</strong> <?= $exp ?>/<?= $exp_needed ?> Exp</p>
-            <p><strong>Point:</strong> <?= $points ?> point</p>
-          </div>
-          <div class="rank-icon">
-            <img src="../gambar/novice.png" alt="<?= $rank ?>">
-          </div>
-        </div>
-      </section>
- 
-      <!-- Progress Bars -->
+
       <section class="progress-section">
         <h2>Progress Mata Pelajaran</h2>
         
@@ -163,8 +114,8 @@ $completed_result = $stmt_completed->get_result();
         <div class="progress-item">
           <h3 class="subject-label">Matematika</h3>
           <div class="progress-bar-container" data-subject="matematika">
-            <div class="progress-bar" data-subject="matematika" style="width: 0%">
-              0%
+            <div class="progress-bar" data-subject="matematika" style="width: <?= $progress_data['matematika'] ?>%">
+              <?= round($progress_data['matematika']) ?>%
             </div>
           </div>
         </div>
@@ -172,8 +123,8 @@ $completed_result = $stmt_completed->get_result();
         <div class="progress-item">
           <h3 class="subject-label">Pendidikan Agama</h3>
           <div class="progress-bar-container" data-subject="pendidikan_agama">
-            <div class="progress-bar" data-subject="pendidikan_agama" style="width: 0%">
-              0%
+            <div class="progress-bar" data-subject="pendidikan_agama" style="width: <?= $progress_data['pendidikan_agama'] ?>%">
+              <?= round($progress_data['pendidikan_agama']) ?>%
             </div>
           </div>
         </div>
@@ -181,8 +132,8 @@ $completed_result = $stmt_completed->get_result();
         <div class="progress-item">
           <h3 class="subject-label">PJOK</h3>
           <div class="progress-bar-container" data-subject="pjok">
-            <div class="progress-bar" data-subject="pjok" style="width: 0%">
-              0%
+            <div class="progress-bar" data-subject="pjok" style="width: <?= $progress_data['pjok'] ?>%">
+              <?= round($progress_data['pjok']) ?>%
             </div>
           </div>
         </div>
@@ -190,8 +141,8 @@ $completed_result = $stmt_completed->get_result();
         <div class="progress-item">
           <h3 class="subject-label">Seni Budaya</h3>
           <div class="progress-bar-container" data-subject="seni_budaya">
-            <div class="progress-bar" data-subject="seni_budaya" style="width: 0%">
-              0%
+            <div class="progress-bar" data-subject="seni_budaya" style="width: <?= $progress_data['seni_budaya'] ?>%">
+              <?= round($progress_data['seni_budaya']) ?>%
             </div>
           </div>
         </div>
@@ -199,14 +150,13 @@ $completed_result = $stmt_completed->get_result();
         <div class="progress-item">
           <h3 class="subject-label">PKN</h3>
           <div class="progress-bar-container" data-subject="pkn">
-            <div class="progress-bar" data-subject="pkn" style="width: 0%">
-              0%
+            <div class="progress-bar" data-subject="pkn" style="width: <?= $progress_data['pkn'] ?>%">
+              <?= round($progress_data['pkn']) ?>%
             </div>
           </div>
         </div>
       </section>
  
-      <!-- Tugas Pending -->
       <section class="task-section">
         <h2>Tugas Aktif</h2>
         <?php if ($tasks_result->num_rows > 0): ?>
@@ -218,10 +168,6 @@ $completed_result = $stmt_completed->get_result();
               </div>
               <div class="task-actions">
                 <button type="button" class="btn-edit" onclick="openEditModal(<?= $task['id'] ?>, '<?= htmlspecialchars($task['task_name'], ENT_QUOTES) ?>', '<?= $task['difficulty'] ?>', <?= $task['weight'] ?>)">Edit</button>
-                <form method="POST" action="../be/be-complete-task.php" class="form-inline">
-                  <input type="hidden" name="task_id" value="<?= $task['id'] ?>">
-                  <button type="submit" class="btn-select">Selesai</button>
-                </form>
                 <form method="POST" action="../be/be-delete-task.php" class="form-inline" onsubmit="return confirm('Yakin ingin menghapus tugas ini?')">
                   <input type="hidden" name="task_id" value="<?= $task['id'] ?>">
                   <button type="submit" class="btn-delete">Hapus</button>
@@ -234,7 +180,6 @@ $completed_result = $stmt_completed->get_result();
         <?php endif; ?>
       </section>
       
-      <!-- Tugas Selesai -->
       <section class="task-section">
         <h2>Tugas yang Telah Selesai</h2>
         <?php if ($completed_result->num_rows > 0): ?>
@@ -259,7 +204,6 @@ $completed_result = $stmt_completed->get_result();
     </main>
   </div>
   
-  <!-- Modal Tambah Tugas -->
   <div id="taskModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
@@ -296,7 +240,6 @@ $completed_result = $stmt_completed->get_result();
     </div>
   </div>
   
-  <!-- Modal Edit Tugas -->
   <div id="editTaskModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeEditModal()">&times;</span>

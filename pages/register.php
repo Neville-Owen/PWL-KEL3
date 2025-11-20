@@ -7,7 +7,16 @@
     <link rel="stylesheet" href="../styles/register.CSS">
 </head>
 <body>
+    <!-- Back Button -->
+    <a href="login.php" class="back-button">Back</a>
+
     <div class="register-container">
+        <!-- Title Section -->
+        <div class="register-title">
+            <h1>REGISTER</h1>
+            <p class="register-subtitle">Buat akun baru untuk memulai</p>
+        </div>
+        
         <!-- Tabs untuk Login/Register -->
         <div class="tabs">
             <a href="login.php">Login</a>
@@ -15,20 +24,20 @@
         </div>
         
         <form method="POST" action="../be/be-register.php">
-            <label>Masukkan Nama Lengkap :</label>
-            <input type="text" name="fullname" placeholder="Masukkan Nama Lengkap Mu!" required>
+            <label>Nama lengkap</label>
+            <input type="text" name="fullname" placeholder="Nama Lengkap" required>
 
-            <label>Masukkan Email :</label>
-            <input type="email" name="email" placeholder="Masukkan Email Mu!" required>
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Email" required>
 
-            <label>Masukkan Username :</label>
-            <input type="text" name="username" placeholder="Masukkan Username Mu!" required>
+            <label>Username</label>
+            <input type="text" name="username" placeholder="Username" required>
 
-            <label>Masukkan Password :</label>
-            <input type="password" name="password" placeholder="Masukkan Password Mu!" required>
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Password" required>
 
-            <label>Konfirmasi Password :</label>
-            <input type="password" name="confirmPassword" placeholder="Konfirmasi Password Mu!" required>
+            <label>Konfirmasi Password</label>
+            <input type="password" name="confirmPassword" placeholder="Konfirmasi Password" required>
 
             <button type="submit" name="register">Daftar</button>
         </form>

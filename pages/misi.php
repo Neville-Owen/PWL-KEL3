@@ -1,10 +1,83 @@
 <?php
 session_start();
+require_once '../config/db-connection.php';
+
 if (!isset($_SESSION['user'])) {
     header('Location: login.php');
     exit;
 }
+
 $user = $_SESSION['user'];
+$user_id = $user['id'];
+$userName = htmlspecialchars($user['name'] ?? 'User');
+
+// Ambil stats user
+$stmt_stats = $connection->prepare("SELECT rank_name, exp, points FROM user_stats WHERE user_id = ?");
+$stmt_stats->bind_param("i", $user_id);
+$stmt_stats->execute();
+$stats_result = $stmt_stats->get_result();
+
+if ($stats_result->num_rows > 0) {
+    $stats = $stats_result->fetch_assoc();
+    $rank = $stats['rank_name'];
+    $exp = $stats['exp'];
+    $points = $stats['points'];
+} else {
+    $rank = 'Novice';
+    $exp = 0;
+    $points = 0;
+}
+
+// Hitung exp untuk next rank
+$exp_needed = 500;
+if ($exp >= 10000) $exp_needed = 15000;
+elseif ($exp >= 5000) $exp_needed = 10000;
+elseif ($exp >= 3000) $exp_needed = 5000;
+elseif ($exp >= 1500) $exp_needed = 3000;
+elseif ($exp >= 500) $exp_needed = 1500;
+
+// Tentukan gambar rank
+$rank_image = 'novice.png';
+if ($rank == 'Grandmaster') $rank_image = 'grandmaster.png';
+elseif ($rank == 'Master') $rank_image = 'master.png';
+elseif ($rank == 'Expert') $rank_image = 'expert.png';
+elseif ($rank == 'Skilled') $rank_image = 'skilled.png';
+elseif ($rank == 'Apprentice') $rank_image = 'apprentice.png';
+
+// Ambil tugas pending user
+$stmt_tasks = $connection->prepare("SELECT id, subject, task_name, difficulty, weight FROM tasks WHERE user_id = ? AND status = 'pending' ORDER BY created_at DESC");
+$stmt_tasks->bind_param("i", $user_id);
+$stmt_tasks->execute();
+$tasks_result = $stmt_tasks->get_result();
+
+// Kelompokkan tugas berdasarkan subject dan difficulty
+$tasks_by_category = array();
+while ($task = $tasks_result->fetch_assoc()) {
+    $subject = $task['subject'];
+    $difficulty = $task['difficulty'];
+    
+    if (!isset($tasks_by_category[$subject])) {
+        $tasks_by_category[$subject] = array(
+            'Mudah' => array(),
+            'Sedang' => array(),
+            'Sulit' => array()
+        );
+    }
+    
+    $tasks_by_category[$subject][$difficulty][] = $task;
+}
+
+// Mapping nama subject untuk display
+$subject_names = array(
+    'bahasa_inggris' => 'Bahasa Inggris',
+    'bahasa_indonesia' => 'Bahasa Indonesia',
+    'ipas' => 'IPAS',
+    'matematika' => 'Matematika',
+    'pendidikan_agama' => 'Pendidikan Agama',
+    'pjok' => 'PJOK',
+    'seni_budaya' => 'Seni Budaya',
+    'pkn' => 'PKN'
+);
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -13,12 +86,10 @@ $user = $_SESSION['user'];
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Questify - Misi</title>
   <link rel="stylesheet" href="../styles/MISI.CSS">
-  <script defer src="../script/MISI.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
-    <!-- Navbar -->
     <div class="navbar">
       <div class="logo">
         <div class="logo-icon">
@@ -32,66 +103,91 @@ $user = $_SESSION['user'];
         <li><a href="proggres.php">Progress</a></li>
         <li><a href="support.php">Bantuan</a></li>
       </ul>
-      <!-- User Info dengan Logout Button -->
       <div class="user-info">
-        <span class="username-display">Halo, <?= htmlspecialchars($user['name'] ?? 'User'); ?>!</span>
+        <span class="username-display">Halo, <?= $userName ?>!</span>
         <a href="../be/be-logout.php" class="logout-btn">Logout</a>
       </div>
     </div>
  
     <main>
+      <?php if (isset($_SESSION['success_message'])): ?>
+        <div class="alert-success"><?= $_SESSION['success_message'] ?></div>
+        <?php unset($_SESSION['success_message']); ?>
+      <?php endif; ?>
+      
+      <?php if (isset($_SESSION['rank_up_message'])): ?>
+        <div class="alert-rankup"><?= $_SESSION['rank_up_message'] ?></div>
+        <?php unset($_SESSION['rank_up_message']); ?>
+      <?php endif; ?>
+      
       <section class="profile-card">
         <div class="profile-info">
           <div class="avatar">
             <img src="../gambar/Profile-removebg-preview (1).png" alt="User Avatar">
           </div>
           <div class="details">
-            <p><strong>Nama:</strong> <?= htmlspecialchars($user['name'] ?? 'User'); ?></p>
-            <p><strong>Rank:</strong> Novice</p>
-            <p><strong>Exp:</strong> 0/100 Exp</p>
-            <p><strong>Point:</strong> 0 point</p>
+            <p><strong>Nama:</strong> <?= $userName ?></p>
+            <p><strong>Rank:</strong> <?= $rank ?></p>
+            <p><strong>Exp:</strong> <?= $exp ?>/<?= $exp_needed ?> Exp</p>
+            <p><strong>Point:</strong> <?= $points ?> point</p>
           </div>
           <div class="rank-icon">
-            <img src="../gambar/novice.png" alt="Novice">
+            <img src="../gambar/<?= $rank_image ?>" alt="<?= $rank ?>">
           </div>
         </div>
       </section>
  
-      <!-- Bagian Umum -->
-      <section class="missions">
-        <h2>Umum</h2>
-        <div class="mission"><p>menulis ringkasan tentang materi yang disampaikan di kelas</p><span class="reward">+100 exp & 150 p</span><button class="btn">selesai</button></div>
-        <div class="mission"><p>menonton 3 video edukasi </p><span class="reward">+50 exp & 200 p</span><button class="btn">selesai</button></div>
-        <div class="mission"><p>Membaca buku 3 halaman</p><span class="reward">+50 exp & 100 p</span><button class="btn">selesai</button></div>
-        <div class="character"><img src="../gambar/Ksatria Hitam.png" alt="Karakter Ksatria"></div>
-      </section>
- 
-      <!-- Bagian Kategori -->
       <section class="kategori">
-        <h2>Kategori</h2>
+        <h2>Kategori Mata Pelajaran</h2>
         <div class="category-buttons">
-          <button>IPS</button>
-          <button>Bahasa Inggris</button>
-          <button>MTK</button>
-          <button>IPA</button>
-          <button>PPKN</button>
-          <button>Bahasa Indonesia</button>
+          <?php foreach ($subject_names as $subject_key => $subject_name): ?>
+            <button class="category-btn" data-category="<?= $subject_key ?>"><?= $subject_name ?></button>
+          <?php endforeach; ?>
         </div>
  
-        <h3>Mudah</h3>
-        <div class="mission"><p>menghafal 5 flora dan 5 fauna yang terancam punah</p><span class="reward">+25 exp & 50 p</span><button class="btn">selesai</button></div>
-        <div class="mission"><p>mengetahui apa saja iklim yang ada di dunia</p><span class="reward">+25 exp & 70 p</span><button class="btn">selesai</button></div>
-        <div class="mission"><p>menghafal 5 sila Pancasila</p><span class="reward">+50 exp & 100 p</span><button class="btn">selesai</button></div>
- 
-        <h3>Sedang</h3>
-        <div class="mission"><p>mengetahui semua bentuk kerja sama ekonomi antar negara</p><span class="reward">+75 exp & 100 p</span><button class="btn">selesai</button></div>
-        <div class="mission"><p>mengetahui 5 letak astronomis berbagai negara di dunia</p><span class="reward">+100 exp & 200 p</span><button class="btn">selesai</button></div>
-        <div class="mission"><p>melihat 3 video tentang materi astronomis dan geografis</p><span class="reward">+120 exp & 200 p</span><button class="btn">selesai</button></div>
-        <div class="character"><img src="../gambar/wizard.png" alt="Karakter Penyihir"></div>
+        <?php if (empty($tasks_by_category)): ?>
+          <div class="no-missions">
+            <p>Belum ada tugas yang ditambahkan. Silakan buat tugas di halaman Progress!</p>
+            <a href="proggres.php" class="btn-goto-progress">Buat Tugas</a>
+          </div>
+        <?php else: ?>
+          <?php foreach ($tasks_by_category as $subject => $difficulties): ?>
+            <div class="category-section" data-category="<?= $subject ?>">
+              <h2 class="category-title"><?= $subject_names[$subject] ?></h2>
+              
+              <?php foreach ($difficulties as $difficulty => $tasks): ?>
+                <?php if (!empty($tasks)): ?>
+                  <h3><?= $difficulty ?></h3>
+                  <?php foreach ($tasks as $task): ?>
+                    <?php
+                    // Hitung reward
+                    $exp_base = array('Mudah' => 50, 'Sedang' => 100, 'Sulit' => 200);
+                    $points_base = array('Mudah' => 75, 'Sedang' => 150, 'Sulit' => 300);
+                    
+                    $exp_reward = round($exp_base[$difficulty] * ($task['weight'] / 10));
+                    $points_reward = round($points_base[$difficulty] * ($task['weight'] / 10));
+                    ?>
+                    <div class="mission">
+                      <p><?= htmlspecialchars($task['task_name']) ?></p>
+                      <span class="reward">+<?= $exp_reward ?> exp & <?= $points_reward ?> p</span>
+                      <form method="POST" action="../be/be-complete-task.php" class="mission-form">
+                        <input type="hidden" name="task_id" value="<?= $task['id'] ?>">
+                        <button type="submit" class="btn">selesai</button>
+                      </form>
+                    </div>
+                  <?php endforeach; ?>
+                <?php endif; ?>
+              <?php endforeach; ?>
+              
+              <div class="character">
+                <img src="../gambar/wizard.png" alt="Karakter Penyihir">
+              </div>
+            </div>
+          <?php endforeach; ?>
+        <?php endif; ?>
       </section>
     </main>
  
-    <!-- Footer -->
     <footer>
       <div class="footer-content">
         <div class="footer-column">
@@ -126,7 +222,7 @@ $user = $_SESSION['user'];
             <li><a href="beranda.php">Beranda</a></li>
             <li><a href="misi.php">Misi</a></li>
             <li><a href="proggres.php">Progress</a></li>
-            <li><a href="bantuan.php">Bantuan</a></li>
+            <li><a href="support.php">Bantuan</a></li>
           </ul>
         </div>
       </div>
@@ -136,5 +232,6 @@ $user = $_SESSION['user'];
       </div>
     </footer>
   </div>
+  <script src="../script/MISI.JS"></script>
 </body>
 </html>

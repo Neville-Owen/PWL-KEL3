@@ -8,169 +8,188 @@
 
 body {
   font-family: 'Kdam Thmor Pro', sans-serif;
-  max-width: 100%;
-  font-weight: 300;
-  font-style: normal;
-  background: linear-gradient(to bottom, #0a1929, #1a237e);
-  background-attachment: fixed;
-  background-position: center;
-  opacity: 1;
-  transition: opacity 0.3s ease-in-out;
+  background: linear-gradient(180deg, #0a1929 0%, #1a237e 100%);
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
+  position: relative;
 }
 
-body.fade-in {
-  animation: fadeIn 0.3s ease-in-out;
+/* Back Button */
+.back-button {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-body.fade-out {
-  opacity: 0;
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateX(-3px);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-body a {
-  color: white;
+.back-button::before {
+  content: '←';
+  font-size: 20px;
 }
 
 /* Login Container */
 .login-container {
   width: 100%;
-  max-width: 520px;
-  background: linear-gradient(to bottom, #1565c0, #4a148c);
-  border-radius: 30px;
+  max-width: 500px;
+  background: linear-gradient(180deg, #1565c0 0%, #4a148c 100%);
+  border-radius: 25px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
-  border: 2px solid rgba(100, 181, 246, 0.6);
 }
 
-/* Title */
-.login-container h1 {
-  display: none;
+/* Title Section */
+.login-title {
+  text-align: center;
+  padding: 35px 20px 25px;
+  background: rgba(0, 0, 0, 0.15);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.login-title h1 {
+  color: #ffffff;
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.login-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  margin-top: 8px;
+  letter-spacing: 0.5px;
 }
 
 /* Tabs Section */
 .tabs {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 100px;
-  background: linear-gradient(to bottom, rgba(25, 118, 210, 0.5), rgba(74, 20, 140, 0.3));
-  padding: 30px 20px;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 30px 30px 0 0;
+  gap: 80px;
+  padding: 25px 20px;
+  background: rgba(0, 0, 0, 0.15);
 }
 
 .tabs a {
   color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
+  font-size: 28px;
   font-weight: bold;
-  font-size: 32px;
-  transition: all 0.3s;
+  padding-bottom: 5px;
+  transition: all 0.2s;
   position: relative;
-  padding-bottom: 8px;
 }
 
 .tabs a.active {
-  color: white;
-  border-bottom: 4px solid white;
+  color: #ffffff;
 }
 
-.tabs a:hover {
-  color: white;
+.tabs a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #ffffff;
 }
 
-/* Form Styling */
+/* Form */
 form {
-  display: flex;
-  flex-direction: column;
-  color: #fff;
-  padding: 50px 60px 45px;
-  width: 100%;
+  padding: 45px 55px 40px;
 }
 
 form label {
   display: block;
-  margin: 0 0 10px 0;
+  color: #ffffff;
+  font-size: 20px;
   font-weight: bold;
-  font-size: 22px;
-  color: white;
+  margin-bottom: 8px;
 }
 
 form input[type="email"],
-form input[type="password"] {
+form input[type="password"],
+form input[type="text"] {
   width: 100%;
-  padding: 12px 8px;
-  margin-bottom: 30px;
-  border: none;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.7);
   background: transparent;
-  color: #fff;
-  outline: none;
-  font-size: 15px;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+  color: #ffffff;
   font-family: 'Kdam Thmor Pro', sans-serif;
+  font-size: 14px;
+  padding: 10px 5px;
+  margin-bottom: 28px;
+  outline: none;
   transition: border-color 0.3s;
 }
 
-form input[type="email"]:focus,
-form input[type="password"]:focus {
-  border-bottom-color: #fff;
+form input:focus {
+  border-bottom-color: rgba(255, 255, 255, 0.9);
 }
 
-form input[type="email"]::placeholder,
-form input[type="password"]::placeholder {
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 14px;
-}
-
-/* Forgot Password Link */
-.forgot-password {
-  color: #ff4444;
+form input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
   font-size: 13px;
+}
+
+/* Forgot Password */
+.forgot-password {
+  display: block;
+  color: #ff4444;
+  font-size: 12px;
   text-decoration: none;
-  display: inline-block;
-  margin-top: -20px;
-  margin-bottom: 10px;
-  transition: color 0.3s;
+  margin-top: -18px;
+  margin-bottom: 20px;
+  transition: all 0.2s;
 }
 
 .forgot-password:hover {
   color: #ff6666;
+  text-decoration: underline;
 }
 
-/* Submit Button */
+/* Button */
 form button {
-  font-family: 'Kdam Thmor Pro', sans-serif;
-  width: 55%;
-  padding: 14px;
-  margin: 20px auto 0;
-  border: none;
-  border-radius: 15px;
-  background: linear-gradient(135deg, #e8e8e8, #c0c0c0);
-  color: #333;
-  font-weight: bold;
-  font-size: 20px;
-  cursor: pointer;
-  transition: all 0.3s;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  width: 50%;
   display: block;
+  margin: 25px auto 0;
+  padding: 12px;
+  background: linear-gradient(135deg, #d9d9d9 0%, #b0b0b0 100%);
+  border: none;
+  border-radius: 12px;
+  color: #2d2d2d;
+  font-family: 'Kdam Thmor Pro', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s;
 }
 
 form button:hover {
-  background: linear-gradient(135deg, #f5f5f5, #d5d5d5);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, #e5e5e5 0%, #c0c0c0 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 }
 
 form button:active {
@@ -180,69 +199,50 @@ form button:active {
 /* Register Link */
 .login-container p {
   text-align: center;
-  margin-top: 25px;
-  padding-bottom: 10px;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 15px;
+  margin-top: 12px;
+  padding-bottom: 15px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
 }
 
 .login-container p a {
-  color: white;
+  color: #ffffff;
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s;
+  transition: all 0.2s;
+  padding: 2px 4px;
+  border-radius: 4px;
 }
 
 .login-container p a:hover {
-  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.1);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .login-container {
-    max-width: 450px;
-  }
-  
-  .tabs {
-    gap: 70px;
-    padding: 25px 15px;
-  }
-  
-  .tabs a {
-    font-size: 28px;
-  }
-  
-  form {
-    padding: 40px 45px 35px;
-  }
-  
-  form label {
-    font-size: 20px;
-  }
-  
-  form input[type="email"],
-  form input[type="password"] {
-    font-size: 14px;
-  }
-  
-  form button {
-    width: 65%;
-    font-size: 18px;
-  }
-}
-
+/* Responsive */
 @media (max-width: 576px) {
-  body {
-    padding: 15px;
+  .back-button {
+    top: 15px;
+    left: 15px;
+    font-size: 16px;
+    padding: 8px 16px;
   }
-  
+
   .login-container {
     max-width: 100%;
+    border-radius: 20px;
+  }
+  
+  .login-title h1 {
+    font-size: 30px;
+  }
+  
+  .login-subtitle {
+    font-size: 12px;
   }
   
   .tabs {
     gap: 50px;
-    padding: 22px 10px;
+    padding: 20px 15px;
   }
   
   .tabs a {
@@ -250,27 +250,24 @@ form button:active {
   }
   
   form {
-    padding: 35px 30px;
+    padding: 35px 35px 30px;
   }
   
   form label {
     font-size: 18px;
   }
   
-  form input[type="email"],
-  form input[type="password"] {
+  form input {
     font-size: 13px;
-    padding: 10px 6px;
-    margin-bottom: 25px;
+    margin-bottom: 24px;
   }
   
   form button {
-    width: 75%;
-    font-size: 17px;
-    padding: 12px;
+    width: 65%;
+    font-size: 16px;
   }
   
   .login-container p {
-    font-size: 14px;
+    font-size: 13px;
   }
 }
