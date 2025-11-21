@@ -1,5 +1,5 @@
 <?php
-// be/be-register.php - UPDATED VERSION
+// be/be-register.php - FIXED VERSION
 require_once __DIR__ . '/../config/db-connection.php';
 
 if (isset($_POST['register'])) {
@@ -34,19 +34,28 @@ if (isset($_POST['register'])) {
         // ========== TAMBAHAN UNTUK PROGRESS SYSTEM ==========
         $user_id = $connection->insert_id;
         
-        // Initialize category ranks untuk user baru
-        $categories = ['IPS', 'Bahasa Inggris', 'MTK', 'IPA', 'Bahasa Indonesia', 'IPAS'];
-        $rankStmt = $connection->prepare("INSERT INTO category_ranks (user_id, category, rank_level) VALUES (?, ?, 0)");
+        // Cek apakah tabel category_ranks ada
+        $tableCheck = $connection->query("SHOW TABLES LIKE 'category_ranks'");
         
-        foreach ($categories as $category) {
-            $rankStmt->bind_param('is', $user_id, $category);
-            try {
-                $rankStmt->execute();
-            } catch (Exception $e) {
-                error_log("Failed to initialize rank for category $category: " . $e->getMessage());
+        if ($tableCheck && $tableCheck->num_rows > 0) {
+            // Initialize category ranks untuk user baru
+            $categories = ['IPS', 'Bahasa Inggris', 'MTK', 'IPA', 'Bahasa Indonesia', 'IPAS'];
+            $rankStmt = $connection->prepare("INSERT INTO category_ranks (user_id, category, rank_level) VALUES (?, ?, 0)");
+            
+            if ($rankStmt) {
+                foreach ($categories as $category) {
+                    $rankStmt->bind_param('is', $user_id, $category);
+                    try {
+                        $rankStmt->execute();
+                    } catch (Exception $e) {
+                        error_log("Failed to initialize rank for category $category: " . $e->getMessage());
+                    }
+                }
+                $rankStmt->close();
             }
+        } else {
+            error_log(message: "Table category_ranks does not exist. Skipping rank initialization.");
         }
-        $rankStmt->close();
         // ===================================================
         
         echo "<script>alert('Registrasi berhasil! Silakan login.'); window.location.href='../pages/login.php';</script>";

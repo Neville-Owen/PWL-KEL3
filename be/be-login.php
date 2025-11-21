@@ -19,10 +19,12 @@ if (isset($_POST['login'])) {
             'name' => $user['name'],
             'email' => $user['email']
         ];
-        header('Location: ../../pages/beranda.php');
+        
+        // Redirect ke beranda setelah login
+        header('Location: ../pages/beranda.php');
         exit;
     } else {
-        echo "<script>alert('Email atau password salah!'); window.location.href='../../pages/login.php';</script>";
+        echo "<script>alert('Email atau password salah!'); window.location.href='../pages/login.php';</script>";
         exit;
     }
 }

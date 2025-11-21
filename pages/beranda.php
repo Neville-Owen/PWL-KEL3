@@ -1,10 +1,10 @@
 <?php
 session_start();
-if (!isset($_SESSION['user'])) { 
-    header('Location: login.php');
-    exit;
-}
-$user = $_SESSION['user'];
+
+// Cek apakah user sudah login
+$isLoggedIn = isset($_SESSION['user']);
+$user = $isLoggedIn ? $_SESSION['user'] : null;
+$userName = $isLoggedIn ? htmlspecialchars($user['name'] ?? 'User') : 'Guest';
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -26,14 +26,14 @@ $user = $_SESSION['user'];
             </div>
             <ul class="nav-links">
                 <li><a href="beranda.php">Beranda</a></li>
-                <li><a href="misi.php">Misi</a></li>
-                <li><a href="proggres.php">Progress</a></li>
+                <li class="nav-misi"><a href="misi.php">Misi</a></li>
+                <li class="nav-progress"><a href="proggres.php">Progress</a></li>
                 <li><a href="support.php">Bantuan</a></li>
             </ul>
-            <!-- User Info dengan Logout Button -->
+            <!-- User Info dengan Logout Button atau Login Button -->
             <div class="user-info">
-                <span class="username-display">Halo, <?= htmlspecialchars($user['name'] ?? 'User'); ?>!</span>
-                <a href="../be/be-logout.php" class="logout-btn">Logout</a>
+                <span class="username-display"></span>
+                <a href="#" class="auth-btn"></a>
             </div>
         </div>
 
@@ -89,7 +89,8 @@ $user = $_SESSION['user'];
         <!-- CTA Section -->
         <div class="cta-section">
             <h2 class="cta-title">AYO BERGABUNG DALAM DUNIA PIXEL MU!</h2>
-            <a href="register.php" class="cta-button">Ready player one?</a>
+            <a href="#" class="cta-button" id="readyPlayerBtn">READY PLAYER ONE?</a>
+            <p class="cta-subtitle"></p>
         </div>
 
         <!-- Footer -->
@@ -98,7 +99,6 @@ $user = $_SESSION['user'];
                 <div class="footer-column">
                     <h3 class="footer-title">Kelompok</h3>
                     <ul class="footer-links">
-        
                         <li><a href="#">Felix Yonathan</a></li>
                         <li><a href="#">Leonardo Agustin</a></li>
                         <li><a href="#">Neville Quen Clay</a></li>
@@ -124,12 +124,12 @@ $user = $_SESSION['user'];
                 
                 <div class="footer-column">
                     <h3 class="footer-title">Navigasi</h3>
-                    <ul class="footer-links">
+                    <ul class="footer-links footer-nav">
                         <li><a href="beranda.php">Beranda</a></li>
-                        <li><a href="misi.php">Misi</a></li>
-                        <li><a href="progress.php">Progres</a></li>
-                        <li><a href="bantuan.php">Bantuan</a></li>
-                        <li><a href="login.php">Login</a></li>
+                        <li class="footer-nav-misi"><a href="misi.php">Misi</a></li>
+                        <li class="footer-nav-progress"><a href="proggres.php">Progres</a></li>
+                        <li><a href="support.php">Bantuan</a></li>
+                        <li class="footer-nav-login"><a href="login.php">Login</a></li>
                     </ul>
                 </div>
             </div>
@@ -139,5 +139,14 @@ $user = $_SESSION['user'];
             </div>
         </div>
     </div>
+    
+    <!-- Hidden data untuk JavaScript -->
+    <script>
+        window.userData = {
+            isLoggedIn: <?php echo $isLoggedIn ? 'true' : 'false'; ?>,
+            userName: '<?php echo $userName; ?>'
+        };
+    </script>
+    <script src="../script/BERANDA.JS"></script>
 </body>
 </html>
