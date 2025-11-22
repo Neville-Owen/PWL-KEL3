@@ -1,122 +1,52 @@
 /* ===== Global ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
   font-family: "Kdam Thmor Pro", cursive;
   background: linear-gradient(180deg, #3f0071, #6a0dad, #7b1fa2);
   color: white;
-  min-height: 100vh;
 }
 
-.container {
-  max-width: 100%;
-  margin: 0 auto;
-  position: relative;
-}
-
-/* ===== Navbar ===== */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 60px;
-  background: rgba(75, 0, 130, 0.6);
-  backdrop-filter: blur(10px);
-  border-bottom: 3px solid rgba(100, 181, 246, 0.6);
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(40, 0, 80, 0.6);
+    padding: 15px 50px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
-.logo-icon {
-  width: 60px;
-  height: 60px;
-  background: transparent;
-  border-radius: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.logo-img {
+  width: 70px;
+  height: 70px;
 }
 
-.logo-icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  image-rendering: pixelated;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: crisp-edges;
+header h1 {
+  font-size: 20px;
+  font-weight: 600;
 }
 
-.logo-text {
-  font-size: 24px;
-  font-weight: bold;
-  color: #FFD700;
-  letter-spacing: 2px;
-}
-
-.nav-links {
-  display: flex;
-  gap: 35px;
-  list-style: none;
-  align-items: center;
-}
-
-.nav-links a {
+nav a {
   color: white;
   text-decoration: none;
-  font-size: 17px;
+  margin-left: 25px;
   font-weight: 500;
-  transition: all 0.3s;
-  padding: 6px 12px;
-  border-radius: 6px;
+  transition: 0.3s;
 }
 
-.nav-links a:hover {
-  background: rgba(192, 107, 255, 0.3);
-  transform: translateY(-2px);
-}
-
-.user-info {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.username-display {
-  color: white;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.logout-btn {
-  padding: 10px 25px;
-  background: linear-gradient(135deg, #ff6b9d, #c06bff);
-  color: white;
-  text-decoration: none;
-  border-radius: 25px;
-  font-size: 16px;
-  font-weight: bold;
-  transition: all 0.3s;
-  box-shadow: 0 4px 15px rgba(192, 107, 255, 0.4);
-}
-
-.logout-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(192, 107, 255, 0.6);
+nav a:hover {
+  color: #ffd54f;
 }
 
 main {
   padding: 30px 60px;
 }
- 
+
 /* ===== Profile Card ===== */
 .profile-card {
   background-color: rgba(255,255,255,0.05);
@@ -124,46 +54,46 @@ main {
   padding: 15px;
   margin-bottom: 50px;
 }
- 
+
 .profile-info {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
- 
+
 .avatar img {
   width: 150px;
   height: 140px;
   border-radius: 50%;
   background-color: transparent;
 }
- 
+
 .details {
   flex: 1;
   margin-left: 30px;
   font-size: 16px;
 }
- 
+
 .rank-icon {
   text-align: center;
 }
- 
+
 .rank-icon img {
   width: 120px;
 }
- 
+
 .rank-icon p {
   margin-top: 8px;
   font-weight: 600;
 }
- 
+
 /* ===== Missions ===== */
 .missions h2,
 .kategori h2 {
   font-size: 25px;
   margin-bottom: 20px;
 }
- 
+
 .mission {
   display: flex;
   align-items: center;
@@ -174,18 +104,18 @@ main {
   margin-bottom: 15px;
   border: 1px solid rgba(255,255,255,0.1);
 }
- 
+
 .mission p {
   flex: 1;
   font-size: 15px;
 }
- 
+
 .reward {
   color: #ffd54f;
   font-weight: 600;
   margin-right: 20px;
 }
- 
+
 .btn {
   background: white;
   color: #4a148c;
@@ -196,34 +126,40 @@ main {
   font-weight: 600;
   transition: 0.3s;
 }
- 
+
 .btn:hover {
   background: #ba68c8;
   color: white;
 }
- 
+
+.btn:disabled {
+  background: #8e24aa;
+  color: white;
+  cursor: not-allowed;
+}
+
 .character {
   text-align: right;
   margin-top: 30px;
 }
- 
+
 .character img {
   width: 120px;
   image-rendering: pixelated;
 }
- 
+
 /* ===== Category Section ===== */
 .kategori {
   margin-top: 60px;
 }
- 
+
 .category-buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 25px;
 }
- 
+
 .category-buttons button {
   background: rgba(255,255,255,0.1);
   border: none;
@@ -234,17 +170,17 @@ main {
   cursor: pointer;
   transition: 0.3s;
 }
- 
+
 .category-buttons button:hover {
   background: #5e35b1;
 }
- 
+
 .kategori h3 {
   margin-top: 25px;
   margin-bottom: 15px;
   font-size: 20px;
 }
- 
+
 /* ===== Footer ===== */
 footer {
   background: #2e004f;
@@ -252,7 +188,7 @@ footer {
   padding: 40px 60px;
   border-top: 2px solid rgba(255,255,255,0.1);
 }
- 
+
 .footer-content {
   display: flex;
   justify-content: space-around;
@@ -260,74 +196,71 @@ footer {
   margin-bottom: 20px;
 }
 
-.footer-column {
-  margin-bottom: 20px;
-}
-
-.footer-title {
+.footer-content h4 {
   margin-bottom: 10px;
   font-weight: 600;
-  font-size: 18px;
 }
 
-.footer-links {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-links li {
-  margin-bottom: 8px;
-}
-
-.footer-links a {
+.footer-content p {
   color: #ddd;
-  text-decoration: none;
   font-size: 14px;
   line-height: 1.6;
-  transition: color 0.3s;
 }
 
-.footer-links a:hover {
-  color: #FFD700;
-}
- 
-.footer-bottom {
+footer .copyright {
   text-align: center;
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-.footer-bottom p {
   font-size: 13px;
   color: #ccc;
+  margin-top: 20px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px 30px;
+/* ===== Notification Animations ===== */
+@keyframes slideIn {
+  from { 
+    transform: translateX(400px); 
+    opacity: 0; 
   }
+  to { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+}
 
-  .nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
+@keyframes slideOut {
+  from { 
+    transform: translateX(0); 
+    opacity: 1; 
   }
+  to { 
+    transform: translateX(400px); 
+    opacity: 0; 
+  }
+}
 
-  main {
-    padding: 20px 30px;
+@keyframes levelUp {
+  0%, 100% { 
+    transform: scale(1); 
   }
+  50% { 
+    transform: scale(1.05); 
+  }
+}
 
-  .profile-info {
-    flex-direction: column;
-    text-align: center;
-  }
+.level-up-animation {
+  animation: levelUp 0.5s ease-in-out;
+}
 
-  .details {
-    margin-left: 0;
-    margin-top: 15px;
+@keyframes slideInMission {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
   }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.mission.new-mission {
+  animation: slideInMission 0.5s ease-out;
 }
