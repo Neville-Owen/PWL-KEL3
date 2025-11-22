@@ -24,10 +24,10 @@
         </div>
       </div>
       <ul>
-        <li><a href="BERANDA.php">Beranda</a></li>
-        <li><a href="MISI.php">Misi</a></li>
-        <li><a href="PROGGRES.html">Progress</a></li>
-        <li><a href="support.html">Bantuan</a></li>
+        <li><a href="beranda.php">Beranda</a></li>
+        <li><a href="misi.php">Misi</a></li>
+        <li><a href="proggres.php">Progress</a></li>
+        <li><a href="support.php">Support</a></li>
        
 
       </ul>
