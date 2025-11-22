@@ -280,11 +280,11 @@
       <img src="gambar/logo.png" alt="Logo" class="logo-img">
     </div>
     <nav>
-      <a href="#">Beranda</a>
-      <a href="#">Misi</a>
-      <a href="PROGGRES.html">Progress</a>
-      <a href="#">Bantuan</a>
-      <a href="#">Masuk</a>
+      <a href="beranda.php">Beranda</a>
+      <a href="misi.php">Misi</a>
+      <a href="proggres.php">Progress</a>
+      <a href="support.php">Support</a>
+      
     </nav>
   </header>
  
