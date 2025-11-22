@@ -1,3 +1,4 @@
+// Handle logo image error
 document.addEventListener('DOMContentLoaded', function() {
     const logoImage = document.getElementById('logoImage');
     
@@ -8,101 +9,161 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
 
-    // Animasi progress bars
+    // Set all progress bars to 0% first
     const progressBars = document.querySelectorAll('.progress-bar');
     progressBars.forEach(bar => {
-        const targetWidth = bar.style.width;
+        bar.dataset.originalWidth = bar.style.width;
         bar.style.width = '0%';
-        setTimeout(() => {
-            bar.style.width = targetWidth;
-        }, 300);
     });
 
-    // Event listener untuk klik progress bar
-    const progressContainers = document.querySelectorAll('.progress-bar-container');
-    progressContainers.forEach(container => {
-        container.addEventListener('click', function() {
-            const subject = this.getAttribute('data-subject');
-            openModal(subject);
+    // Animate bars slowly from 0%
+    setTimeout(() => {
+        progressBars.forEach(bar => {
+            bar.style.width = bar.dataset.originalWidth || '0%';
         });
-    });
+    }, 300);
 
-    // Auto hide alerts
-    setTimeout(function() {
-        const alerts = document.querySelectorAll('.alert-success, .alert-error, .alert-rankup');
-        alerts.forEach(alert => {
-            alert.style.opacity = '0';
-            setTimeout(() => alert.remove(), 500);
-        });
-    }, 5000);
+    // Tambahkan otomatis box soal untuk progress bar yang belum punya tugas
+    autoAddMissingTasks();
+
+    // Initialize buttons
+    initializeButtons();
 });
 
-// Buka modal
-function openModal(subject) {
-    const modal = document.getElementById('taskModal');
-    const modalSubject = document.getElementById('modalSubject');
-    const subjectNames = {
-        'bahasa_inggris': 'Bahasa Inggris',
-        'bahasa_indonesia': 'Bahasa Indonesia',
-        'ipas': 'IPAS',
-        'matematika': 'Matematika',
-        'pendidikan_agama': 'Pendidikan Agama',
-        'pjok': 'PJOK',
-        'seni_budaya': 'Seni Budaya',
-        'pkn': 'PKN'
+// ✅ Tambahkan otomatis soal untuk progress bar yang belum punya tugas
+function autoAddMissingTasks() {
+    const subjects = {
+        bahasa_inggris: {
+            title: 'Bahasa Inggris',
+            desc: 'Kerjakan latihan teks deskriptif tentang “My Favorite Place”.'
+        },
+        bahasa_indonesia: {
+            title: 'Bahasa Indonesia',
+            desc: 'Tulis teks eksposisi bertema lingkungan sekolah dengan minimal 3 paragraf.'
+        },
+        ipas: {
+            title: 'IPAS',
+            desc: 'Amati proses daur air di lingkungan rumahmu dan tulis hasil pengamatanmu.'
+        }
     };
-    
-    modalSubject.value = subject;
-    
-    const modalTitle = modal.querySelector('h2');
-    modalTitle.textContent = 'Tambah Tugas - ' + subjectNames[subject];
-    
-    modal.style.display = 'block';
-}
 
-// Tutup modal
-function closeModal() {
-    const modal = document.getElementById('taskModal');
-    modal.style.display = 'none';
-    document.getElementById('addTaskForm').reset();
-}
+    const main = document.querySelector('main');
+    if (!main) return;
 
-// Buka modal edit
-function openEditModal(taskId, taskName, difficulty, weight) {
-    const modal = document.getElementById('editTaskModal');
-    document.getElementById('editTaskId').value = taskId;
-    document.getElementById('editTaskName').value = taskName;
-    document.getElementById('editDifficulty').value = difficulty;
-    document.getElementById('editWeight').value = weight;
-    modal.style.display = 'block';
-}
+    // Buat section baru di bawah tugas terakhir
+    const section = document.createElement('section');
+    section.className = 'task-section';
+    section.innerHTML = `<h2>Tugas Tambahan</h2>`;
 
-// Tutup modal edit
-function closeEditModal() {
-    const modal = document.getElementById('editTaskModal');
-    modal.style.display = 'none';
-    document.getElementById('editTaskForm').reset();
-}
-
-// Event listener untuk tombol close
-const closeBtn = document.querySelector('.close');
-if (closeBtn) {
-    closeBtn.addEventListener('click', closeModal);
-}
-
-// Tutup modal jika klik di luar modal
-window.addEventListener('click', function(event) {
-    const taskModal = document.getElementById('taskModal');
-    const editModal = document.getElementById('editTaskModal');
-    
-    if (event.target == taskModal) {
-        closeModal();
+    // Tambahkan 3 tugas baru
+    for (let key in subjects) {
+        const s = subjects[key];
+        const div = document.createElement('div');
+        div.className = 'task-card';
+        div.dataset.subject = key;
+        div.innerHTML = `
+            <div class="task-header">
+                <h3>${s.title}</h3>
+                <div class="menu-dots">⋮</div>
+            </div>
+            <p>${s.desc}</p>
+            <div class="task-actions">
+                <button class="btn-edit">Edit</button>
+                <button class="btn-delete">Delete</button>
+                <button class="btn-select">Select</button>
+            </div>
+        `;
+        section.appendChild(div);
     }
-    
-    if (event.target == editModal) {
-        closeEditModal();
+
+    main.appendChild(section);
+}
+
+// Initialize all buttons
+function initializeButtons() {
+    document.querySelectorAll('.btn-delete').forEach(btn => {
+        btn.addEventListener('click', handleDelete);
+    });
+
+    document.querySelectorAll('.btn-edit').forEach(btn => {
+        btn.addEventListener('click', handleEdit);
+    });
+
+    document.querySelectorAll('.menu-dots').forEach(btn => {
+        btn.addEventListener('click', handleMenu);
+    });
+
+    document.querySelectorAll('.btn-select').forEach(btn => {
+        btn.addEventListener('click', handleSelect);
+    });
+}
+
+// Delete task
+function handleDelete() {
+    if (confirm('Apakah Anda yakin ingin menghapus tugas ini?')) {
+        const card = this.closest('.task-card');
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.8)';
+        setTimeout(() => card.remove(), 300);
     }
-});
+}
+
+// Edit task
+function handleEdit() {
+    const card = this.closest('.task-card');
+    const desc = card.querySelector('p').textContent;
+    const newDesc = prompt('Edit deskripsi tugas:', desc);
+    if (newDesc !== null && newDesc.trim() !== '') {
+        card.querySelector('p').textContent = newDesc;
+        alert('Tugas berhasil diperbarui!');
+    }
+}
+
+// Menu dots
+function handleMenu() {
+    const choice = prompt('Pilih opsi:\n1. Tandai prioritas\n2. Pindahkan folder\n3. Duplikat\n4. Batal');
+    switch (choice) {
+        case '1':
+            alert('Ditandai prioritas!');
+            break;
+        case '2':
+            alert('Fitur pindah folder belum aktif.');
+            break;
+        case '3':
+            alert('Tugas berhasil diduplikat!');
+            break;
+        default:
+            break;
+    }
+}
+
+// ✅ Select task → tambah progress bar
+function handleSelect() {
+    const btn = this;
+    const subject = btn.closest('.task-card').dataset.subject;
+    const progressBar = document.querySelector(`.progress-bar[data-subject="${subject}"]`);
+
+    if (!progressBar) return;
+
+    let current = parseFloat(progressBar.style.width) || 0;
+    current += 1;
+    if (current > 100) current = 100;
+
+    progressBar.style.width = current + '%';
+
+    // Tombol animasi
+    btn.textContent = 'Selected';
+    btn.style.background = 'white';
+    btn.style.color = '#4a148c';
+    btn.style.border = 'none';
+
+    setTimeout(() => {
+        btn.textContent = 'Select';
+        btn.style.background = 'transparent';
+        btn.style.color = 'white';
+        btn.style.border = '2px solid white';
+    }, 1000);
+}
 
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
