@@ -1,22 +1,21 @@
 // ========== RANK SYSTEM ==========
 const RANKS = [
-  { name: 'Novice', minExp: 0, maxExp: 100, image: 'novice.png' },
-  { name: 'Apprentice', minExp: 100, maxExp: 300, image: 'apprentice.png' },
-  { name: 'Warrior', minExp: 300, maxExp: 600, image: 'warrior.png' },
-  { name: 'Expert', minExp: 600, maxExp: 1000, image: 'expert.png' },
-  { name: 'Master', minExp: 1000, maxExp: 1500, image: 'master.png' },
-  { name: 'Legend', minExp: 1500, maxExp: Infinity, image: 'legend.png' }
+  { name: 'Novice', minExp: 0, maxExp: 300, image: 'gambar/novice.png' },
+  { name: 'Apprentice', minExp: 300, maxExp: 600, image: 'gambar/Apprentice-removebg-preview.png' },
+  { name: 'Adept', minExp: 600, maxExp: 1000, image: 'gambar/Adept-removebg-preview.png' },
+  { name: 'Expert', minExp: 1000, maxExp: 1500, image: 'gambar/Expert-removebg-preview.png' },
+  { name: 'Master', minExp: 1500, maxExp: Infinity, image: 'gambar/Master-removebg-preview.png' }
 ];
 
 // ========== MISSION BANK ==========
 const MISSION_BANK = {
   general: [
-    { text: 'Membuat catatan dari 5 halaman buku pelajaran', exp: 80, point: 120 },
+    { text: 'Membuat catatan dari 5 halaman buku pelajaran', exp: 50, point: 80 },
     { text: 'Mendengarkan podcast edukasi selama 20 menit', exp: 60, point: 90 },
-    { text: 'Membuat mind map dari materi hari ini', exp: 90, point: 140 },
+    { text: 'Membuat mind map dari materi hari ini', exp: 25, point: 20 },
     { text: 'Menjelaskan materi kepada teman dengan kata-kata sendiri', exp: 110, point: 160 },
-    { text: 'Membaca artikel ilmiah dan membuat rangkuman', exp: 120, point: 180 },
-    { text: 'Menonton dokumenter edukatif dan menulis review', exp: 100, point: 150 },
+    { text: 'Membaca artikel ilmiah dan membuat rangkuman', exp: 50, point: 55 },
+    { text: 'Menonton dokumenter edukatif dan menulis review', exp: 25, point: 30 },
     { text: 'Mengerjakan latihan soal dari buku panduan', exp: 70, point: 110 }
   ],
   easy: [
@@ -27,11 +26,11 @@ const MISSION_BANK = {
     { text: 'Membaca cerita rakyat dan menuliskan pesan moralnya', exp: 30, point: 60 }
   ],
   medium: [
-    { text: 'Membuat presentasi singkat tentang sistem tata surya', exp: 110, point: 180 },
+    { text: 'Membuat presentasi singkat tentang sistem tata surya', exp: 35, point: 50 },
     { text: 'Menyelesaikan 10 soal matematika tingkat menengah', exp: 90, point: 150 },
-    { text: 'Menulis esai 300 kata tentang lingkungan hidup', exp: 100, point: 170 },
-    { text: 'Membuat percobaan sains sederhana dan dokumentasikan', exp: 130, point: 210 },
-    { text: 'Menganalisis puisi dan menjelaskan maknanya', exp: 85, point: 140 }
+    { text: 'Menulis esai 300 kata tentang lingkungan hidup', exp: 25, point: 50 },
+    { text: 'Membuat percobaan sains sederhana dan dokumentasikan', exp: 40, point: 60 },
+    { text: 'Menganalisis puisi dan menjelaskan maknanya', exp: 20, point: 40 }
   ]
 };
 
@@ -216,4 +215,4 @@ if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', init);
 } else {
   init();
-}   
+}
