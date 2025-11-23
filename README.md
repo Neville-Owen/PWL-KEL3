@@ -21,10 +21,12 @@ Simply open the `beranda.php` file in your favorite browser.
 
 ##  Usage
 
-1. Run the website by opening `localhost:1000/pages/beranda.php`.  
-2. Navigate through the menu:
+1. Run the website by opening laragon then write `php -S localhost:1000`
+2. Then press and hold Ctrl button and click the link
+3. Open the website by write this on your browser `localhost:1000/pages/beranda.php`
+4. Navigate through the menu:
    Selection of questions created from the Questify application at various levels.
-3. Follow the materials and exercises provided at each level.
+5. Follow the materials and exercises provided at each level.
 
    ---
 
