@@ -15,12 +15,15 @@ body {
 
 header {
     background: rgba(74, 20, 140, 0.5);
-    padding: 15px 0;
     position: fixed;
+    padding: 16px 0 16px;
     width: 100%;
     top: 0;
     z-index: 1000;
     backdrop-filter: blur(10px);
+    height: 60px;
+    display: flex;
+    align-items: center;
 }
 
 nav {
@@ -29,6 +32,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
     padding: 0 40px;
 }
 
@@ -39,10 +43,9 @@ nav {
 }
 
 .logo-container {
-width: 70px;
-    height: 570px;
+width: 35px;
+    height: 35px;
     background: transparent; 
-    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -80,11 +83,6 @@ nav ul li a:hover {
     color: #bb86fc;
 }
 
-.btn {
-  background: #ff0077;
-  padding: 8px 16px;
-  border-radius: 8px;
-}
 
 .floor1 {
   display: flex;

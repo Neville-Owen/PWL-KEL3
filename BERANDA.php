@@ -9,17 +9,21 @@
 <body>
       <header>
         <nav>
-          <div class="logo"><img src="gambar/logo.png" alt="Logo Questify"></div>
-          <div class="navHeader"></div>
-          <ul>
-            <li><a href="BERANDA.php">Beranda</a></li>
-            <li><a href="misi.php">Misi</a></li>
-            <li><a href="PROGGRES.php">Progress</a></li>
-            <li><a href="support.php">Bantuan</a></li>
-            <li><a href="login.php">Masuk</a></li>
-          </ul>
+            <div class="logo">
+                <div class="logo-container">
+                    <img src="gambar/logo.png" alt="Logo Questify" id="logoImage">
+                </div>
+                
+            </div>
+            <ul>
+                <li><a href="BERANDA.php">Beranda</a></li>
+                <li><a href="MISI.php">Misi</a></li>
+                <li><a href="PROGRESS.php">Progress</a></li>
+                <li><a href="SUPPORT.php">Bantuan</a></li>
+                <li><a href="login.php">Masuk</a></li>
+            </ul>
         </nav>
-      </header>
+      </header>
 
       <section class="floor1">
         <img src="gambar/homepage1.png" class="treasure" alt="">
@@ -75,7 +79,7 @@
 
       <section class="LoginH">
         <h1>AYO BERGABUNG DALAM DUNIA <br> PIXEL MU!</h1>
-        <a href="register.php" class="cta-btn">Ready player one?</a>
+        <a href="#" class="cta-btn">Ready player one?</a>
       </section>
     
 
