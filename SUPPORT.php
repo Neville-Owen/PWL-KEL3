@@ -3,23 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Questify - Supportpage</title>
     <link rel="stylesheet" href="support.css">
 </head>
 <body>
     <header>
         <nav>
-          <div class="logo"><img src="gambar/logo.png" alt="Logo Questify"></div>
-          <div class="navHeader"></div>
-          <ul>
-            <li><a href="BERANDA.html">Beranda</a></li>
-            <li><a href="misi.html">Misi</a></li>
-            <li><a href="PROGGRES.html">Progress</a></li>
-            <li><a href="support.html">Bantuan</a></li>
-            <li><a href="login.html">Masuk</a></li>
-          </ul>
+            <div class="logo">
+                <div class="logo-container">
+                    <img src="gambar/logo.png" alt="Logo Questify" id="logoImage">
+                </div>
+                
+            </div>
+            <ul>
+                <li><a href="BERANDA.php">Beranda</a></li>
+                <li><a href="MISI.php">Misi</a></li>
+                <li><a href="PROGGRES.php">Progress</a></li>
+                <li><a href="SUPPORT.php">Bantuan</a></li>
+                <li><a href="login.php">Masuk</a></li>
+            </ul>
         </nav>
-      </header>
+      </header>
 
       <h1>
         Support Quest - Kami siap <br>
@@ -56,4 +60,3 @@ function kirim() {
 </script>
 </body>
 </html>
-
