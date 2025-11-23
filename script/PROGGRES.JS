@@ -35,9 +35,9 @@ function autoAddMissingTasks() {
     const subjects = {
         bahasa_inggris: {
             title: 'Bahasa Inggris',
-            desc: 'Kerjakan latihan teks deskriptif tentang “My Favorite Place”.'
+            desc: 'Kerjakan latihan teks deskriptif tentang "My Favorite Place".'
         },
-        bahasa_indonesia: {
+        b_indonesia: {
             title: 'Bahasa Indonesia',
             desc: 'Tulis teks eksposisi bertema lingkungan sekolah dengan minimal 3 paragraf.'
         },
@@ -62,14 +62,13 @@ function autoAddMissingTasks() {
         div.className = 'task-card';
         div.dataset.subject = key;
         div.innerHTML = `
-            <div class="task-header">
-                <h3>${s.title}</h3>
-                <div class="menu-dots">⋮</div>
+            <div class="task-info">
+                <h3>Sedang</h3>
+                <p>${s.desc}</p>
             </div>
-            <p>${s.desc}</p>
             <div class="task-actions">
-                <button class="btn-edit">Edit</button>
-                <button class="btn-delete">Delete</button>
+                <button class="btn-delete">Hapus</button>
+                <button class="btn-edit">✏️</button>
                 <button class="btn-select">Select</button>
             </div>
         `;
@@ -146,22 +145,23 @@ function handleSelect() {
     if (!progressBar) return;
 
     let current = parseFloat(progressBar.style.width) || 0;
-    current += 1;
+    current += 10;
     if (current > 100) current = 100;
 
     progressBar.style.width = current + '%';
 
     // Tombol animasi
+    const originalText = btn.textContent;
     btn.textContent = 'Selected';
     btn.style.background = 'white';
     btn.style.color = '#4a148c';
     btn.style.border = 'none';
 
     setTimeout(() => {
-        btn.textContent = 'Select';
-        btn.style.background = 'transparent';
-        btn.style.color = 'white';
-        btn.style.border = '2px solid white';
+        btn.textContent = originalText;
+        btn.style.background = 'white';
+        btn.style.color = '#4a148c';
+        btn.style.border = 'none';
     }, 1000);
 }
 
