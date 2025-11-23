@@ -37,12 +37,9 @@ nav {
     gap: 8px;
 }
 
-nav ul {
-}
-
 .logo-container {
-width: 70px;
-    height: 570x;
+    width: 70px;
+    height: 70px;
     background: transparent; 
     border-radius: 6px;
     display: flex;
@@ -146,6 +143,7 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: opacity 0.3s, transform 0.3s;
 }
 
 .task-info h3 {
@@ -174,7 +172,7 @@ h1 {
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.2s, background 0.3s, color 0.3s;
 }
 
 .btn-select:hover {
