@@ -16,12 +16,12 @@ Questify adalah aplikasi Membantu siswa mengatur tugas dengan lebih efektif, Men
    cd PWL-KEL3
    ```
 
-    3. No additional dependencies are required as this project only uses HTML, CSS, and Laragon.
-Simply open the `homepage.html` file in your favorite browser.
+    3. No additional dependencies are required as this project only uses PHP, CSS, JS, and Laragon.
+Simply open the `beranda.php` file in your favorite browser.
 
 ##  Usage
 
-1. Run the website by opening `homepage.html`.  
+1. Run the website by opening `localhost:1000/pages/beranda.php`.  
 2. Navigate through the menu:
    Selection of questions created from the Questify application at various levels.
 3. Follow the materials and exercises provided at each level.
@@ -33,10 +33,13 @@ Simply open the `homepage.html` file in your favorite browser.
 Project structure:
 
 ```
-PWL-XITKJ2-Kelompok9/
-│── index.html      # Main page
-│── style.css       # Website styling
-│── img/            # Supporting icons/images
+PWL-KEL3/
+pages
+│── beranda.html    # Main page
+sytles
+│── styles.css      # Website styling
+gambar
+│── img/            # Supporting
 │── README.md       # Project documentation
 ```
 
@@ -46,7 +49,7 @@ Technologies used:
 
   ## Contributing
 
-We welcome contributions from anyone who wants to help improve the Questify App!
+We welcome contributions from a│── beranda.html    # Main pagenyone who wants to help improve the Questify App!
 Whether you're fixing bugs, adding new features, improving documentation, or sharing new learning materials, your efforts are greatly appreciated.
 
 ### How to Contribute
